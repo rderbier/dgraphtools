@@ -52,16 +52,21 @@ func init() {
 }
 func initFlags() {
 
-	flag.StringVar(&fileName, "in", "", "csv file to process")
-	flag.StringVar(&templateFileName, "template", "", "template file path to import")
-	flag.StringVar(&outFileName, "out", "", "output file")
+	flag.StringVar(&fileName, "f", "", "csv file to process")
+	flag.StringVar(&templateFileName, "t", "", "template file")
+	flag.StringVar(&outFileName, "o", "", "output file. default to input filename with .rdf extension")
 
 	flag.Parse()
+	if (fileName == "") || (templateFileName == "") {
+		flag.Usage()
+		log.Fatal("input file and template missing.")
+	}
 	// read rdf template
 	file, err := os.Open(templateFileName)
 	if err != nil {
 		fmt.Println(templateFileName)
 		log.Fatal(err)
+
 	}
 
 	scanner := bufio.NewScanner(file)

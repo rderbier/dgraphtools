@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-in=/Users/raph/data/Donors-small.csv","-template=/Users/raph//data/DonorTemplate.txt", "-out=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=/Users/raph/data/Donors-small.csv","-t=/Users/raph//data/DonorTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
         }, 
         {
             "name": "donations",
@@ -18,7 +18,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-in=/Users/raph/data/Donations-small.csv","-template=/Users/raph/data/DonationTemplate.txt", "-out=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=/Users/raph/data/Donations-small.csv","-t=/Users/raph/data/DonationTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
         }, 
         {
             "name": "projects",
@@ -26,7 +26,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-in=/Users/raph/data/Projects-small.csv","-template=/Users/raph/data/ProjectTemplate.txt", "-out=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=/Users/raph/data/Projects-small.csv","-t=/Users/raph/data/ProjectTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
         }, 
         {
         "name": "schools",
@@ -34,7 +34,7 @@
         "request": "launch",
         "mode": "auto",
         "program": "cmd/csvtordf",
-        "args": ["-in=/Users/raph/data/Schoolsgeo-small.csv","-template=/Users/raph/data/SchoolTemplate.txt", "-out=/Users/raph/tmp/donors.rdf"]
+        "args": ["-f=/Users/raph/data/Schoolsgeo-small.csv", "-t=/Users/raph/data/SchoolTemplate.txt","-o=/Users/raph/tmp/donors.rdf"]
     },
         {
             "name": "rdfload",
