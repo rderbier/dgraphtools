@@ -1,0 +1,3 @@
+<_:Project_[Project.ID]> <dgraph.type> "Project" .
+<_:Project_[Project.ID]> <title> "[Project.Title]" .
+<_:Project_[Project.ID]> <project_school> <_:School_[School.ID]> .

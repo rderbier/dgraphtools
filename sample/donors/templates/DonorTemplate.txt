@@ -1,0 +1,4 @@
+<_:Donor[Donor.ID]> <is_a> "Donor" .
+<_:State_[Donor.State,nospace]> <is_a> "State" .
+<_:State_[Donor.State,nospace]> <name> "[Donor.State]" .
+<_:Donor[Donor.ID]> <is_in> <_:State_[Donor.State,nospace]>
