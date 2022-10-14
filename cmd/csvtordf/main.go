@@ -182,8 +182,10 @@ func cvslineToTriples(line []string, templates []string, hmap map[string]int) []
 				switch f {
 				case "nospace":
 					val = strings.ReplaceAll(val, " ", "_")
-				case "upper":
+				case "toUpper":
 					val = strings.ToUpper(val)
+				case "toLower":
+					val = strings.ToLower(val)
 				}
 
 			}
