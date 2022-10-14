@@ -45,7 +45,7 @@ func init() {
 	rdfMap = make(map[string]string)
 	// create the regeexp used to extract substitution in the template
 	// find square bracketed parts [...]
-	r, _ = regexp.Compile("\\[([A-Za-z .,]+)\\]")
+	r, _ = regexp.Compile("\\[([\\w .,|]+)\\]")
 	// rdf just find the non-sapces groups
 	rdfRegexp, _ = regexp.Compile("(<\\S+>)\\s+(<\\S+>)\\s+([\"<].*[\">])\\s+([.\\*])")
 	opRegexp, _ = regexp.Compile("=(\\w+)\\(([^,)]+),?([^,)]+)?\\)")
@@ -145,7 +145,7 @@ func substituteFunction(triple string) (string, error) {
 			t2, _ := time.Parse(format, opMatch[3])
 
 			days := int(math.Round(t2.Sub(t1).Hours() / 24))
-			d := rand.Intn(days)
+			d := rand.Intn(days + 1)
 			t1 = t1.AddDate(0, 0, d)
 			val = t1.Format(format)
 		default:
@@ -155,12 +155,10 @@ func substituteFunction(triple string) (string, error) {
 	}
 	return triple, nil
 }
-func cvslineToTriples(line []string, templates []string, hmap map[string]int) []string {
+func cvslineToTriples(index int, line []string, templates []string, hmap map[string]int) ([]string, error) {
 	var output []string
-	var hasError bool
 	var err error
 	for _, triple := range templates {
-		hasError = false
 		// replace all [] blocks one by one, loop until none found.
 		for {
 			// analyse the template line
@@ -175,7 +173,7 @@ func cvslineToTriples(line []string, templates []string, hmap map[string]int) []
 
 			val := line[hmap[column]]
 			if val == "" {
-				hasError = true
+				err = errors.New(fmt.Sprintf("Empty value line %d", index))
 				break
 			}
 			for _, f := range info[1:] {
@@ -193,16 +191,19 @@ func cvslineToTriples(line []string, templates []string, hmap map[string]int) []
 			triple = fmt.Sprintf("%s%s%s", triple[:match[0]], val, triple[match[1]:])
 		}
 		// loop until none function found
-		triple, err = substituteFunction(triple)
-		if err != nil {
-			log.Fatal(err)
-		}
-		if !hasError {
-			output = append(output, triple)
+		if err == nil {
+			triple, err = substituteFunction(triple)
+			if err == nil {
+				output = append(output, triple)
+			} else {
+				break
+			}
+		} else {
+			break
 		}
 
 	}
-	return output
+	return output, err
 }
 func rdfToMapAndPredicates(rdfs []string) {
 
@@ -239,13 +240,15 @@ func getHeaderMap(csvReader *csv.Reader) map[string]int {
 func processCsv(f *os.File) {
 	csvReader := csv.NewReader(f)
 	hmap := getHeaderMap(csvReader)
+	i := 0
 	for {
 		rec, err := csvReader.Read()
 		if err == io.EOF {
 			break
 		}
 		if err == nil {
-			triples := cvslineToTriples(rec, rdfTemplates, hmap)
+			i += 1
+			triples, _ := cvslineToTriples(i, rec, rdfTemplates, hmap)
 			rdfToMapAndPredicates(triples)
 
 		} else {
