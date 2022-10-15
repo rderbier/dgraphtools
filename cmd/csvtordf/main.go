@@ -38,11 +38,15 @@ var (
 	rdfRegexp        *regexp.Regexp
 	opRegexp         *regexp.Regexp
 	rdfMap           map[string]string
-	predicates       []string
+	tripleList       []string
+	predicateSchema  map[string]string
 )
 
 func init() {
+	// rdfMap stores all single (S-P) triples created
 	rdfMap = make(map[string]string)
+	// predicateSchema stores all predicates with infered shcema
+	predicateSchema = make(map[string]string)
 	// create the regeexp used to extract substitution in the template
 	// find square bracketed parts [...]
 	r, _ = regexp.Compile("\\[([\\w .,|]+)\\]")
@@ -104,10 +108,10 @@ func main() {
 	// read csv values using csv.Reader
 	processCsv(f)
 
-	dumpRdf(predicates, rdfMap, outfile)
+	dumpRdf(tripleList, rdfMap, outfile)
 
 }
-func dumpRdf(predicates []string, rdfMap map[string]string, f *os.File) {
+func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File) {
 	for key, value := range rdfMap {
 		line := fmt.Sprintf("%s %s .\n", key, value)
 		if f != nil {
@@ -116,7 +120,7 @@ func dumpRdf(predicates []string, rdfMap map[string]string, f *os.File) {
 			fmt.Printf(line)
 		}
 	}
-	for _, s := range predicates {
+	for _, s := range tripleList {
 		if f != nil {
 			f.WriteString(s)
 		} else {
@@ -155,55 +159,67 @@ func substituteFunction(triple string) (string, error) {
 	}
 	return triple, nil
 }
+func substituteColumnValues(line []string, tripleTemplate string, hmap map[string]int) (string, error) {
+	for {
+		// analyse the template line
+		columnAndFunc := r.FindStringSubmatch(tripleTemplate)
+
+		if len(columnAndFunc) == 0 {
+			break
+		}
+		info := strings.Split(columnAndFunc[1], ",")
+		column := info[0]
+		match := r.FindStringIndex(tripleTemplate)
+		col, exist := hmap[column]
+		if !exist {
+			err := errors.New(fmt.Sprintf("%s is referencing a non existing column %s", tripleTemplate, column))
+			return "", err
+		}
+		val := line[col]
+		if val == "" {
+			fmt.Printf("RDF %s ignored because of empty value for column %s", tripleTemplate, column)
+			break
+		}
+		// remove [] which could cause a nested substitution
+		val = strings.Replace(val, "[", "", -1)
+		val = strings.Replace(val, "]", "", -1)
+		for _, f := range info[1:] {
+			switch f {
+			case "nospace":
+				val = strings.ReplaceAll(val, " ", "_")
+			case "toUpper":
+				val = strings.ToUpper(val)
+			case "toLower":
+				val = strings.ToLower(val)
+			default:
+				err := errors.New(fmt.Sprintf("unsupported transformer %s", f))
+				return "", err
+			}
+
+		}
+
+		tripleTemplate = fmt.Sprintf("%s%s%s", tripleTemplate[:match[0]], val, tripleTemplate[match[1]:])
+	}
+	return tripleTemplate, nil
+}
 func cvslineToTriples(index int, line []string, templates []string, hmap map[string]int) ([]string, error) {
 	var output []string
 	var err error
 	for _, triple := range templates {
 		// replace all [] blocks one by one, loop until none found.
-		for {
-			// analyse the template line
-			columnAndFunc := r.FindStringSubmatch(triple)
-
-			if len(columnAndFunc) == 0 {
-				break
-			}
-			info := strings.Split(columnAndFunc[1], ",")
-			column := info[0]
-			match := r.FindStringIndex(triple)
-
-			val := line[hmap[column]]
-			if val == "" {
-				err = errors.New(fmt.Sprintf("Empty value line %d", index))
-				break
-			}
-			for _, f := range info[1:] {
-				switch f {
-				case "nospace":
-					val = strings.ReplaceAll(val, " ", "_")
-				case "toUpper":
-					val = strings.ToUpper(val)
-				case "toLower":
-					val = strings.ToLower(val)
-				}
-
-			}
-
-			triple = fmt.Sprintf("%s%s%s", triple[:match[0]], val, triple[match[1]:])
+		triple, err = substituteColumnValues(line, triple, hmap)
+		// end loop until none function found
+		if err != nil {
+			return nil, err
 		}
-		// loop until none function found
+		triple, err = substituteFunction(triple)
 		if err == nil {
-			triple, err = substituteFunction(triple)
-			if err == nil {
-				output = append(output, triple)
-			} else {
-				break
-			}
+			output = append(output, triple)
 		} else {
-			break
+			return nil, err
 		}
-
 	}
-	return output, err
+	return output, nil
 }
 func rdfToMapAndPredicates(rdfs []string) {
 
@@ -211,11 +227,25 @@ func rdfToMapAndPredicates(rdfs []string) {
 		// extract s P O . from triple
 		elt := rdfRegexp.FindStringSubmatch(s)
 		if len(elt) >= 5 {
+			pred := elt[2]
+			predtype := "default"
+			if strings.HasPrefix(elt[3], "<") {
+				predtype = "uid"
+			} else if strings.HasPrefix(elt[3], "\"{") {
+				predtype = "geolocation"
+			}
 			if elt[4] == "*" { // multiple predicate possible
-				predicates = append(predicates, fmt.Sprintf("%s %s %s .\n", elt[1], elt[2], elt[3]))
+				predtype = "[uid]"
+				tripleList = append(tripleList, fmt.Sprintf("%s %s %s .\n", elt[1], elt[2], elt[3]))
 			} else {
 				rdfMap[elt[1]+" "+elt[2]] = elt[3]
 			}
+			if current, exist := predicateSchema[pred]; exist {
+				if current != predtype {
+					log.Fatal("type mistmach on predicate" + pred)
+				}
+			}
+			predicateSchema[pred] = predtype
 
 		} else {
 			log.Fatal("Invalid RDF generated " + s)
@@ -248,7 +278,10 @@ func processCsv(f *os.File) {
 		}
 		if err == nil {
 			i += 1
-			triples, _ := cvslineToTriples(i, rec, rdfTemplates, hmap)
+			triples, err := cvslineToTriples(i, rec, rdfTemplates, hmap)
+			if err != nil {
+				log.Fatal(errors.New(fmt.Sprintf("%s at  line %d", err.Error(), i)))
+			}
 			rdfToMapAndPredicates(triples)
 
 		} else {

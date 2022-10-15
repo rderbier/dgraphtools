@@ -18,18 +18,27 @@ func TestSubstituteFunction(t *testing.T) {
 
 }
 func TestCvslineToTriples(t *testing.T) {
+
 	assert := assert.New(t)
-	line := []string{"Value one", "Value two"}
+	line := []string{"Value one", "Value two", "Value [three]"}
 	cols := map[string]int{
-		"COL1": 0,
-		"COL2": 1,
+		"COL1":  0,
+		"COL2":  1,
+		"COL.3": 2,
 	}
 	templates := []string{"<_:test> <is> \"text with [COL1] and [COL2]\" ."}
 
-	tripple, _ := cvslineToTriples(0, line, templates, cols)
-	assert.Equal(tripple[0], "<_:test> <is> \"text with Value one and Value two\" .")
+	triple, _ := cvslineToTriples(0, line, templates, cols)
+	assert.Equal(triple[0], "<_:test> <is> \"text with Value one and Value two\" .")
 	templates = []string{"<_:test> <is> \"text with [COL1,toUpper] and [COL2,toLower]\" ."}
-	tripple, _ = cvslineToTriples(0, line, templates, cols)
-	assert.Equal(tripple[0], "<_:test> <is> \"text with VALUE ONE and value two\" .")
+	triple, _ = cvslineToTriples(0, line, templates, cols)
+	assert.Equal(triple[0], "<_:test> <is> \"text with VALUE ONE and value two\" .")
+	templates = []string{"<_:test> <is> \"text with [COL1,dummyFunc]\" ."}
+	_, err := cvslineToTriples(0, line, templates, cols)
+	assert.Equal(err.Error(), "unsupported transformer dummyFunc")
+	assert.Equal(triple[0], "<_:test> <is> \"text with VALUE ONE and value two\" .")
+	templates = []string{"<_:test> <is> \"text with [COL.3]\" ."}
+	triple, err = cvslineToTriples(0, line, templates, cols)
+	assert.Equal(triple[0], "<_:test> <is> \"text with Value three\" .")
 
 }
