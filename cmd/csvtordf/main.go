@@ -30,16 +30,17 @@ import (
 )
 
 var (
-	fileName         string
-	templateFileName string
-	outFileName      string
-	rdfTemplates     []string
-	r                *regexp.Regexp
-	rdfRegexp        *regexp.Regexp
-	opRegexp         *regexp.Regexp
-	rdfMap           map[string]string
-	tripleList       []string
-	predicateSchema  map[string]string
+	fileName          string
+	templateFileName  string
+	outFileName       string
+	outSchemaFileName string
+	rdfTemplates      []string
+	r                 *regexp.Regexp
+	rdfRegexp         *regexp.Regexp
+	opRegexp          *regexp.Regexp
+	rdfMap            map[string]string
+	tripleList        []string
+	predicateSchema   map[string]string
 )
 
 func init() {
@@ -58,7 +59,8 @@ func initFlags() {
 
 	flag.StringVar(&fileName, "f", "", "csv file to process")
 	flag.StringVar(&templateFileName, "t", "", "template file")
-	flag.StringVar(&outFileName, "o", "", "output file. default to input filename with .rdf extension")
+	flag.StringVar(&outFileName, "o", "", "output rdf file. default to stdout")
+	flag.StringVar(&outSchemaFileName, "s", "", "output schema file. default to stdout")
 
 	flag.Parse()
 	if (fileName == "") || (templateFileName == "") {
@@ -86,9 +88,21 @@ func initFlags() {
 func loadUidsmap(filename string) {
 
 }
+func loadSchema(f *os.File) {
+	predRegexp, _ := regexp.Compile("([^ ]*)")
 
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		line := scanner.Text()
+		opMatch := predRegexp.FindAllString(line, -1)
+		if len(opMatch) > 2 {
+			predicateSchema[opMatch[0][0:len(opMatch[0])-1]] = strings.Join(opMatch[1:len(opMatch)-1], " ")
+		}
+	}
+}
 func main() {
 	var outfile *os.File
+	var outschema *os.File
 	initFlags()
 	f, err := os.Open(fileName)
 	if err != nil {
@@ -104,14 +118,27 @@ func main() {
 		}
 		defer outfile.Close()
 	}
+	if outSchemaFileName != "" {
+		file, err := os.Open(outSchemaFileName)
+		if err == nil {
+			loadSchema(file)
+			file.Close()
+		}
+
+		outschema, err = os.OpenFile(outSchemaFileName, os.O_WRONLY|os.O_CREATE, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer outschema.Close()
+	}
 
 	// read csv values using csv.Reader
 	processCsv(f)
 
-	dumpRdf(tripleList, rdfMap, outfile)
+	dumpRdf(tripleList, rdfMap, outfile, outschema)
 
 }
-func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File) {
+func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File, schemafile *os.File) {
 	for key, value := range rdfMap {
 		line := fmt.Sprintf("%s %s .\n", key, value)
 		if f != nil {
@@ -120,15 +147,23 @@ func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File) {
 			fmt.Printf(line)
 		}
 	}
-	for _, s := range tripleList {
-		if f != nil {
-			f.WriteString(s)
-		} else {
-			fmt.Printf(s)
-		}
+	if f == nil {
+		f = os.Stdout
+	} else {
+		fmt.Printf("rdf exported to %s\n", f.Name())
 	}
-	if f != nil {
-		fmt.Printf("rdf exported to %s", f.Name())
+	for _, s := range tripleList {
+		f.WriteString(s)
+	}
+	if schemafile == nil {
+		schemafile = os.Stdout
+	} else {
+		fmt.Printf("schema exported to %s", schemafile.Name())
+	}
+
+	for key, value := range predicateSchema {
+		line := fmt.Sprintf("%s: %s .\n", key, value)
+		schemafile.WriteString(line)
 	}
 
 }
@@ -221,38 +256,43 @@ func cvslineToTriples(index int, line []string, templates []string, hmap map[str
 	}
 	return output, nil
 }
-func rdfToMapAndPredicates(rdfs []string) {
+func rdfToMapAndPredicates(rdfs []string) error {
 
 	for _, s := range rdfs {
 		// extract s P O . from triple
 		elt := rdfRegexp.FindStringSubmatch(s)
 		if len(elt) >= 5 {
-			pred := elt[2]
+			pred := elt[2][1 : len(elt[2])-1]
+			obj := elt[3]
 			predtype := "default"
-			if strings.HasPrefix(elt[3], "<") {
+			if strings.HasPrefix(obj, "<") {
 				predtype = "uid"
-			} else if strings.HasPrefix(elt[3], "\"{") {
-				predtype = "geolocation"
+			} else if strings.HasPrefix(obj, "\"{") {
+				predtype = "geo @index(geo)"
 			}
 			if elt[4] == "*" { // multiple predicate possible
-				predtype = "[uid]"
-				tripleList = append(tripleList, fmt.Sprintf("%s %s %s .\n", elt[1], elt[2], elt[3]))
+				predtype = "[" + predtype + "]"
+				tripleList = append(tripleList, fmt.Sprintf("%s %s %s .\n", elt[1], pred, obj))
 			} else {
 				rdfMap[elt[1]+" "+elt[2]] = elt[3]
 			}
-			if current, exist := predicateSchema[pred]; exist {
-				if current != predtype {
-					log.Fatal("type mistmach on predicate" + pred)
+			if !strings.HasPrefix(pred, "dgraph") {
+				if current, exist := predicateSchema[pred]; exist {
+					if current != predtype {
+						return errors.New(fmt.Sprintf("type mistmach on predicate %s : found %s and %s", pred, current, predtype))
+					}
 				}
+				predicateSchema[pred] = predtype
 			}
-			predicateSchema[pred] = predtype
 
 		} else {
-			log.Fatal("Invalid RDF generated " + s)
+			if !strings.HasPrefix(s, "#") {
+				return errors.New("Invalid RDF generated " + s)
+			}
 		}
 
 	}
-	return
+	return nil
 
 }
 func getHeaderMap(csvReader *csv.Reader) map[string]int {
@@ -282,7 +322,10 @@ func processCsv(f *os.File) {
 			if err != nil {
 				log.Fatal(errors.New(fmt.Sprintf("%s at  line %d", err.Error(), i)))
 			}
-			rdfToMapAndPredicates(triples)
+			err = rdfToMapAndPredicates(triples)
+			if err != nil {
+				log.Fatal(err)
+			}
 
 		} else {
 			log.Print(err)

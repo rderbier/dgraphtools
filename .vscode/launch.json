@@ -10,7 +10,9 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Donors-small.csv","-t=../../sample/donors/templates/DonorTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=../../sample/donors/csv/Donors-small.csv","-t=../../sample/donors/templates/DonorTemplate.txt",\
+             "-o=/Users/raph/tmp/donors.rdf"\
+             "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
             "name": "donations",
@@ -18,7 +20,9 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Donations-small.csv","-t=../../sample/donors/templates/DonationTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=../../sample/donors/csv/Donations-small.csv","-t=../../sample/donors/templates/DonationTemplate.txt", \
+            "-o=/Users/raph/tmp/donors.rdf"\
+            "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
             "name": "projects",
@@ -26,7 +30,10 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Projects-small.csv","-t=../../sample/donors/templates/ProjectTemplate.txt", "-o=/Users/raph/tmp/donors.rdf"]
+            "args": ["-f=../../sample/donors/csv/Projects-small.csv",\
+            "-t=../../sample/donors/templates/ProjectTemplate.txt", \
+            "-o=/Users/raph/tmp/donors.rdf"\
+            "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
         "name": "schools",
@@ -34,7 +41,10 @@
         "request": "launch",
         "mode": "auto",
         "program": "cmd/csvtordf",
-        "args": ["-f=../../sample/donors/csv/Schoolsgeo-small.csv", "-t=../../sample/donors/templates/SchoolTemplate.txt","-o=/Users/raph/tmp/donors.rdf"]
+        "args": ["-f=../../sample/donors/csv/Schoolsgeo-small.csv", \
+        "-t=../../sample/donors/templates/SchoolTemplate.txt",\
+        "-o=/Users/raph/tmp/donors.rdf"\
+        "-s=/Users/raph/tmp/donors.schema"]
     },
         {
             "name": "rdfload",

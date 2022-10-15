@@ -1,3 +1,4 @@
+# template file
 <_:School_[School.ID]> <name> "[School.Name]" .
 <_:School_[School.ID]> <geoloc> =geoloc([LAT],[LNG]) .
 <_:School_[School.ID]> <dgraph.type> "School" .
