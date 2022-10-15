@@ -50,6 +50,6 @@ If a predicate can be repeated for the same entity id (list) then  mark it with 
 <_:Donor[Donor.ID]> <donor_donation> <_:Donation_[Donation.ID]> *
 ```
 
-### best practices for Dgraph DRF
-Note that nospace is important for id in Dgraph RDF.
+### best practices for Dgraph RDF
+nospace is important for id.
 
