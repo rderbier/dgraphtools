@@ -3,4 +3,4 @@
 <_:Donor[Donor.ID]> <donor_donation> <_:Donation_[Donation.ID]> *
 <_:Donor[Donor.ID]> <dgraph.type> "Donor" .
 <_:Donation_[Donation.ID]> <donation_project> <_:Project_[Project.ID]> .
-<_:Donation_[Donation.ID]> <day> "=randomDate(2020-01-01,2022-12-31)" .
+<_:Donation_[Donation.ID]> <day> <_:tt=randomDate(2020-01-01,2022-12-31)> .

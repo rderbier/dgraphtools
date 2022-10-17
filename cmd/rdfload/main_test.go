@@ -43,21 +43,9 @@ func TestCvslineToTriples(t *testing.T) {
 
 }
 func TestParseSchema(t *testing.T) {
-	schema := []string{"name: default .", "geoloc: geo @index(geo) .", "type School {", "  name", "}"}
+	schema := []string{"name: default .", "geoloc: geo @index(geo) .", "type School {"}
 	p := parseSchema(schema)
 	assert.Equal(t, p.predicatesMap["name"], "default")
 	assert.Equal(t, p.predicatesMap["geoloc"], "geo @index(geo)")
-	assert.Equal(t, p.types["School"]["name"], true)
-
-}
-func TestRdfToMapAndPredicates(t *testing.T) {
-	lines := []string{"<_:test> <link> <_:obj> .", "<_:test> <link> \"value\" ."}
-	p := newPredSchema()
-	err := rdfToMapAndPredicates(lines, p)
-	assert.Equal(t, err.Error(), "type mistmach on predicate link : found uid and default")
-	p = newPredSchema()
-	lines = []string{"<_:test> <dgraph.type> \"School\" .", "<_:test> <link> \"value\" ."}
-	err = rdfToMapAndPredicates(lines, p)
-	assert.Equal(t, p.types["School"]["link"], true)
 
 }

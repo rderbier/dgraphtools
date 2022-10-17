@@ -4,14 +4,15 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "donors",
             "type": "go",
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Donors-small.csv","-t=../../sample/donors/templates/DonorTemplate.txt",\
-             "-o=/Users/raph/tmp/donors.rdf"\
+            "args": ["-f=../../sample/donors/csv/Donors-small.csv","-t=../../sample/donors/templates/DonorTemplate.txt", 
+             "-o=/Users/raph/tmp/donors.rdf",
              "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
@@ -20,8 +21,8 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Donations-small.csv","-t=../../sample/donors/templates/DonationTemplate.txt", \
-            "-o=/Users/raph/tmp/donors.rdf"\
+            "args": ["-f=../../sample/donors/csv/Donations-small.csv","-t=../../sample/donors/templates/DonationTemplate.txt", 
+            "-o=/Users/raph/tmp/donors.rdf",
             "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
@@ -30,9 +31,9 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/csvtordf",
-            "args": ["-f=../../sample/donors/csv/Projects-small.csv",\
-            "-t=../../sample/donors/templates/ProjectTemplate.txt", \
-            "-o=/Users/raph/tmp/donors.rdf"\
+            "args": ["-f=../../sample/donors/csv/Projects-small.csv",
+            "-t=../../sample/donors/templates/ProjectTemplate.txt", 
+            "-o=/Users/raph/tmp/donors.rdf",
             "-s=/Users/raph/tmp/donors.schema"]
         }, 
         {
@@ -41,11 +42,11 @@
         "request": "launch",
         "mode": "auto",
         "program": "cmd/csvtordf",
-        "args": ["-f=../../sample/donors/csv/Schoolsgeo-small.csv", \
-        "-t=../../sample/donors/templates/SchoolTemplate.txt",\
-        "-o=/Users/raph/tmp/donors.rdf"\
+        "args": ["-f=../../sample/donors/csv/Schoolsgeo-small.csv", 
+        "-t=../../sample/donors/templates/SchoolTemplate.txt",
+        "-o=/Users/raph/tmp/donors.rdf",
         "-s=/Users/raph/tmp/donors.schema"]
-    },
+        },
         {
             "name": "rdfload",
             "type": "go",
@@ -53,6 +54,14 @@
             "mode": "auto",
             "program": "cmd/rdfload",
             "args": ["../../test.rdf"]
+        },
+        {
+            "name": "rdfdatetree",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/rdfdatetree",
+            "args": ["-o=/Users/raph/tmp/donors.rdf","2020-01-01","2022-12-31"]
         }
     ]
 }

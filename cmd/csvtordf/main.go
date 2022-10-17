@@ -1,15 +1,9 @@
 package main
 
 /*
-Replicate dgraph live functionality
-
-Read RDF file
-send set command and keep uid of newly created entities in a map (blank node)
-substitute blank node with knwon uid from the map
-save uid map
-accept uid map file
-stop on error returned by dgraph client and display the last line number
-accept line number to start : used to re-try at last line
+Read CSV file and RDF template to produce Dgraph RDF file and Schema draft
+Schema draft is just the list of prediates found in the template and a list of detected dgraph.type mapping with associated list of predicates.
+You want to set the correct type and indexes on the prediates.
 
 */
 
@@ -29,6 +23,18 @@ import (
 	"time"
 )
 
+type PredSchema struct {
+	predicatesMap map[string]string
+	types         map[string]map[string]bool
+}
+
+func newPredSchema() *PredSchema {
+	p := PredSchema{}
+	p.predicatesMap = make(map[string]string)
+	p.types = make(map[string]map[string]bool)
+	return &p
+}
+
 var (
 	fileName          string
 	templateFileName  string
@@ -40,20 +46,20 @@ var (
 	opRegexp          *regexp.Regexp
 	rdfMap            map[string]string
 	tripleList        []string
-	predicateSchema   map[string]string
+	uidTypeMap        map[string]string
 )
 
 func init() {
 	// rdfMap stores all single (S-P) triples created
 	rdfMap = make(map[string]string)
-	// predicateSchema stores all predicates with infered shcema
-	predicateSchema = make(map[string]string)
+	uidTypeMap = make(map[string]string)
 	// create the regeexp used to extract substitution in the template
 	// find square bracketed parts [...]
 	r, _ = regexp.Compile("\\[([\\w .,|]+)\\]")
 	// rdf just find the non-sapces groups
 	rdfRegexp, _ = regexp.Compile("(<\\S+>)\\s+(<\\S+>)\\s+([\"<].*[\">])\\s+([.\\*])")
 	opRegexp, _ = regexp.Compile("=(\\w+)\\(([^,)]+),?([^,)]+)?\\)")
+
 }
 func initFlags() {
 
@@ -88,17 +94,45 @@ func initFlags() {
 func loadUidsmap(filename string) {
 
 }
-func loadSchema(f *os.File) {
-	predRegexp, _ := regexp.Compile("([^ ]*)")
+func loadSchema(f *os.File) *PredSchema {
 
 	scanner := bufio.NewScanner(f)
+	var lines []string
 	for scanner.Scan() {
-		line := scanner.Text()
-		opMatch := predRegexp.FindAllString(line, -1)
-		if len(opMatch) > 2 {
-			predicateSchema[opMatch[0][0:len(opMatch[0])-1]] = strings.Join(opMatch[1:len(opMatch)-1], " ")
+		lines = append(lines, scanner.Text())
+	}
+	return parseSchema(lines)
+}
+func parseSchema(lines []string) *PredSchema {
+	p := newPredSchema()
+	var i int
+	typename := ""
+	for _, line := range lines {
+		line := strings.Trim(line, " ")
+		if !strings.HasPrefix(line, "#") {
+			i = strings.Index(line, ":")
+			if i > -1 {
+				pred := line[0:i]
+
+				p.predicatesMap[pred] = strings.Trim(strings.Trim(line[i+1:], "."), " ")
+			} else {
+				if strings.HasPrefix(line, "type") {
+					typename = strings.Split(line, " ")[1]
+					p.types[typename] = make(map[string]bool)
+				} else if strings.HasPrefix(line, "}") {
+					typename = ""
+				} else {
+					if typename != "" {
+						p.types[typename][line] = true
+					}
+				}
+
+			}
+
 		}
 	}
+	return p
+
 }
 func main() {
 	var outfile *os.File
@@ -118,10 +152,11 @@ func main() {
 		}
 		defer outfile.Close()
 	}
+	var p *PredSchema
 	if outSchemaFileName != "" {
 		file, err := os.Open(outSchemaFileName)
 		if err == nil {
-			loadSchema(file)
+			p = loadSchema(file)
 			file.Close()
 		}
 
@@ -130,15 +165,18 @@ func main() {
 			log.Fatal(err)
 		}
 		defer outschema.Close()
+	} else {
+		p = newPredSchema()
 	}
 
 	// read csv values using csv.Reader
-	processCsv(f)
+	processCsv(f, p)
 
-	dumpRdf(tripleList, rdfMap, outfile, outschema)
+	dumpRdf(tripleList, rdfMap, outfile)
+	dumpSchema(outschema, p)
 
 }
-func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File, schemafile *os.File) {
+func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File) {
 	for key, value := range rdfMap {
 		line := fmt.Sprintf("%s %s .\n", key, value)
 		if f != nil {
@@ -155,17 +193,27 @@ func dumpRdf(tripleList []string, rdfMap map[string]string, f *os.File, schemafi
 	for _, s := range tripleList {
 		f.WriteString(s)
 	}
+
+}
+func dumpSchema(schemafile *os.File, p *PredSchema) {
 	if schemafile == nil {
 		schemafile = os.Stdout
 	} else {
 		fmt.Printf("schema exported to %s", schemafile.Name())
 	}
 
-	for key, value := range predicateSchema {
+	for key, value := range p.predicatesMap {
 		line := fmt.Sprintf("%s: %s .\n", key, value)
 		schemafile.WriteString(line)
 	}
-
+	for dqltype, predmap := range p.types {
+		line := fmt.Sprintf("type %s {\n", dqltype)
+		schemafile.WriteString(line)
+		for pred, _ := range predmap {
+			schemafile.WriteString(fmt.Sprintf(" %s\n", pred))
+		}
+		schemafile.WriteString("}\n")
+	}
 }
 func substituteFunction(triple string) (string, error) {
 	for {
@@ -213,6 +261,7 @@ func substituteColumnValues(line []string, tripleTemplate string, hmap map[strin
 		val := line[col]
 		if val == "" {
 			fmt.Printf("RDF %s ignored because of empty value for column %s", tripleTemplate, column)
+			tripleTemplate = ""
 			break
 		}
 		// remove [] which could cause a nested substitution
@@ -235,6 +284,7 @@ func substituteColumnValues(line []string, tripleTemplate string, hmap map[strin
 
 		tripleTemplate = fmt.Sprintf("%s%s%s", tripleTemplate[:match[0]], val, tripleTemplate[match[1]:])
 	}
+
 	return tripleTemplate, nil
 }
 func cvslineToTriples(index int, line []string, templates []string, hmap map[string]int) ([]string, error) {
@@ -249,19 +299,22 @@ func cvslineToTriples(index int, line []string, templates []string, hmap map[str
 		}
 		triple, err = substituteFunction(triple)
 		if err == nil {
-			output = append(output, triple)
+			if triple != "" {
+				output = append(output, triple)
+			}
 		} else {
 			return nil, err
 		}
 	}
 	return output, nil
 }
-func rdfToMapAndPredicates(rdfs []string) error {
+func rdfToMapAndPredicates(rdfs []string, p *PredSchema) error {
 
 	for _, s := range rdfs {
 		// extract s P O . from triple
 		elt := rdfRegexp.FindStringSubmatch(s)
 		if len(elt) >= 5 {
+			subj := elt[1]
 			pred := elt[2][1 : len(elt[2])-1]
 			obj := elt[3]
 			predtype := "default"
@@ -272,17 +325,28 @@ func rdfToMapAndPredicates(rdfs []string) error {
 			}
 			if elt[4] == "*" { // multiple predicate possible
 				predtype = "[" + predtype + "]"
-				tripleList = append(tripleList, fmt.Sprintf("%s %s %s .\n", elt[1], pred, obj))
+				tripleList = append(tripleList, fmt.Sprintf("%s <%s> %s .\n", elt[1], pred, obj))
 			} else {
-				rdfMap[elt[1]+" "+elt[2]] = elt[3]
+				rdfMap[subj+" "+elt[2]] = elt[3]
 			}
 			if !strings.HasPrefix(pred, "dgraph") {
-				if current, exist := predicateSchema[pred]; exist {
-					if current != predtype {
+				if current, exist := p.predicatesMap[pred]; exist {
+					if !strings.HasPrefix(current, predtype) {
 						return errors.New(fmt.Sprintf("type mistmach on predicate %s : found %s and %s", pred, current, predtype))
 					}
 				}
-				predicateSchema[pred] = predtype
+				p.predicatesMap[pred] = predtype
+			}
+			// save types
+			if pred == "dgraph.type" {
+				uidTypeMap[subj] = strings.Trim(obj, "\"")
+			} else {
+				if knowntype, ok := uidTypeMap[subj]; ok {
+					if _, istype := p.types[knowntype]; !istype {
+						p.types[knowntype] = make(map[string]bool)
+					}
+					p.types[knowntype][pred] = true
+				}
 			}
 
 		} else {
@@ -307,7 +371,7 @@ func getHeaderMap(csvReader *csv.Reader) map[string]int {
 	}
 	return hmap
 }
-func processCsv(f *os.File) {
+func processCsv(f *os.File, p *PredSchema) {
 	csvReader := csv.NewReader(f)
 	hmap := getHeaderMap(csvReader)
 	i := 0
@@ -322,7 +386,7 @@ func processCsv(f *os.File) {
 			if err != nil {
 				log.Fatal(errors.New(fmt.Sprintf("%s at  line %d", err.Error(), i)))
 			}
-			err = rdfToMapAndPredicates(triples)
+			err = rdfToMapAndPredicates(triples, p)
 			if err != nil {
 				log.Fatal(err)
 			}
