@@ -2,10 +2,10 @@ package main
 
 import (
 	"bytes"
-	"fmt"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDumpDateRDF(t *testing.T) {

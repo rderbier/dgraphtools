@@ -331,11 +331,12 @@ func rdfToMapAndPredicates(rdfs []string, p *PredSchema) error {
 			}
 			if !strings.HasPrefix(pred, "dgraph") {
 				if current, exist := p.predicatesMap[pred]; exist {
-					if !strings.HasPrefix(current, predtype) {
-						return errors.New(fmt.Sprintf("type mistmach on predicate %s : found %s and %s", pred, current, predtype))
+					if (current == "uid" || current == "[uid]") && !strings.HasPrefix(current, predtype) {
+						return errors.New(fmt.Sprintf("type mismatch on predicate %s : found %s and %s", pred, current, predtype))
 					}
+				} else {
+					p.predicatesMap[pred] = predtype
 				}
-				p.predicatesMap[pred] = predtype
 			}
 			// save types
 			if pred == "dgraph.type" {
