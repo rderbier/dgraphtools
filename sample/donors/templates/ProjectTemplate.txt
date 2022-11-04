@@ -1,3 +1,7 @@
 <_:Project_[Project.ID]> <dgraph.type> "Project" .
 <_:Project_[Project.ID]> <title> "[Project.Title]" .
+<_:Project_[Project.ID]> <grade> "[Project.Grade.Level.Category]" .
+<_:Project_[Project.ID]> <category> "[Project.Subject.Category.Tree]" .
+<_:Project_[Project.ID]> <subcategory> "[Project.Subject.Subcategory.Tree]" .
+<_:Project_[Project.ID]> <status> "[Project.Current.Status]" .
 <_:Project_[Project.ID]> <project_school> <_:School_[School.ID]> .

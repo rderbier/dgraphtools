@@ -54,7 +54,7 @@ func TestRdfToMapAndPredicates(t *testing.T) {
 	lines := []string{"<_:test> <link> <_:obj> .", "<_:test> <link> \"value\" ."}
 	p := newPredSchema()
 	err := rdfToMapAndPredicates(lines, p)
-	assert.Equal(t, err.Error(), "type mistmach on predicate link : found uid and default")
+	assert.Equal(t, err.Error(), "type mismatch on predicate link : found uid and default")
 	p = newPredSchema()
 	lines = []string{"<_:test> <dgraph.type> \"School\" .", "<_:test> <link> \"value\" ."}
 	err = rdfToMapAndPredicates(lines, p)
