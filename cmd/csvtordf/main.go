@@ -260,7 +260,7 @@ func substituteColumnValues(line []string, tripleTemplate string, hmap map[strin
 		}
 		val := line[col]
 		if val == "" {
-			fmt.Printf("RDF %s ignored because of empty value for column %s", tripleTemplate, column)
+			fmt.Printf("RDF %s ignored because of empty value for column %s\n", tripleTemplate, column)
 			tripleTemplate = ""
 			break
 		}
@@ -308,7 +308,7 @@ func cvslineToTriples(index int, line []string, templates []string, hmap map[str
 	}
 	return output, nil
 }
-func rdfToMapAndPredicates(rdfs []string, p *PredSchema) error {
+func rdfToMapAndPredicates(rdfs []string, p *PredSchema) (*map[string]string, error) {
 
 	for _, s := range rdfs {
 		// extract s P O . from triple
@@ -322,17 +322,22 @@ func rdfToMapAndPredicates(rdfs []string, p *PredSchema) error {
 				predtype = "uid"
 			} else if strings.HasPrefix(obj, "\"{") {
 				predtype = "geo @index(geo)"
+			} else if strings.HasPrefix(obj, "\"") {
+				// need to print  \" instead of " and \\ instead of \
+				obj = strings.Replace(obj[1:len(obj)-1], "\\", "\\\\", -1)
+				obj = strings.Replace(obj, "\"", "\\\"", -1)
+				obj = "\"" + obj + "\""
 			}
 			if elt[4] == "*" { // multiple predicate possible
 				predtype = "[" + predtype + "]"
 				tripleList = append(tripleList, fmt.Sprintf("%s <%s> %s .\n", elt[1], pred, obj))
 			} else {
-				rdfMap[subj+" "+elt[2]] = elt[3]
+				rdfMap[subj+" "+elt[2]] = obj
 			}
 			if !strings.HasPrefix(pred, "dgraph") {
 				if current, exist := p.predicatesMap[pred]; exist {
 					if (current == "uid" || current == "[uid]") && !strings.HasPrefix(current, predtype) {
-						return errors.New(fmt.Sprintf("type mismatch on predicate %s : found %s and %s", pred, current, predtype))
+						return nil, errors.New(fmt.Sprintf("type mismatch on predicate %s : found %s and %s", pred, current, predtype))
 					}
 				} else {
 					p.predicatesMap[pred] = predtype
@@ -352,12 +357,12 @@ func rdfToMapAndPredicates(rdfs []string, p *PredSchema) error {
 
 		} else {
 			if !strings.HasPrefix(s, "#") {
-				return errors.New("Invalid RDF generated " + s)
+				log.Println("Invalid RDF generated " + s)
 			}
 		}
 
 	}
-	return nil
+	return &rdfMap, nil
 
 }
 func getHeaderMap(csvReader *csv.Reader) map[string]int {
@@ -387,7 +392,7 @@ func processCsv(f *os.File, p *PredSchema) {
 			if err != nil {
 				log.Fatal(errors.New(fmt.Sprintf("%s at  line %d", err.Error(), i)))
 			}
-			err = rdfToMapAndPredicates(triples, p)
+			_, err = rdfToMapAndPredicates(triples, p)
 			if err != nil {
 				log.Fatal(err)
 			}

@@ -53,11 +53,24 @@ func TestParseSchema(t *testing.T) {
 func TestRdfToMapAndPredicates(t *testing.T) {
 	lines := []string{"<_:test> <link> <_:obj> .", "<_:test> <link> \"value\" ."}
 	p := newPredSchema()
-	err := rdfToMapAndPredicates(lines, p)
+	var m *map[string]string
+	var err error
+	m, err = rdfToMapAndPredicates(lines, p)
 	assert.Equal(t, err.Error(), "type mismatch on predicate link : found uid and default")
 	p = newPredSchema()
 	lines = []string{"<_:test> <dgraph.type> \"School\" .", "<_:test> <link> \"value\" ."}
-	err = rdfToMapAndPredicates(lines, p)
+	m, err = rdfToMapAndPredicates(lines, p)
+	assert.Equal(t, p.types["School"]["link"], true)
+	lines = []string{
+		"<_:test> <pred> \"value with \"quoted\" part\" .",
+		"<_:School> <geoloc> \"{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[-78.469379,39.28347]}\"^^<geo:geojson> .",
+		"<_:School> <title> \"value with back\\slash\" .",
+	}
+	m, err = rdfToMapAndPredicates(lines, p)
+	assert.Equal(t, (*m)["<_:test> <pred>"], "\"value with \\\"quoted\\\" part\"")
+	assert.Equal(t, (*m)["<_:School> <geoloc>"], "\"{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[-78.469379,39.28347]}\"^^<geo:geojson>")
+	assert.Equal(t, (*m)["<_:School> <title>"], "\"value with back\\\\slash\"")
+
 	assert.Equal(t, p.types["School"]["link"], true)
 
 }

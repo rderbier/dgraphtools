@@ -1,0 +1,11 @@
+version: '3.9`'
+services:
+  dgraph:
+    image: godebug:1.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../:/dgraph
+      - /tmp:/tmp
+    working_dir: /dgraph
+    command: sleep infinity

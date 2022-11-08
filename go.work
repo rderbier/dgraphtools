@@ -2,5 +2,6 @@ go 1.19
 
 use (
 	./cmd/csvtordf
+	./cmd/cleancrlf
 	./cmd/rdfdatetree
 )
