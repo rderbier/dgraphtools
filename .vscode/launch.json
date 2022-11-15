@@ -91,6 +91,14 @@
             "mode": "auto",
             "program": "cmd/rdfdatetree",
             "args": ["-o=/Users/raph/tmp/donors.rdf","2020-01-01","2022-12-31"]
+        },
+        {
+            "name": "neocsv",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/neocsvtordf",
+            "args": ["-f=/Users/raph/Documents/Indykite/dgraph_sample.csv","-c=config.json"]
         }
     ]
 }
