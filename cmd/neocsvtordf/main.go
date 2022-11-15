@@ -61,7 +61,9 @@ var (
 )
 
 func init() {
-	initFlags()
+}
+func initConfig() {
+
 	if configFileName != "" {
 		rawConfig, err := ioutil.ReadFile(configFileName)
 		if err != nil {
@@ -91,6 +93,8 @@ func initFlags() {
 func main() {
 	var outfile *os.File
 	var outschema *os.File
+	initFlags()
+	initConfig()
 
 	f, err := os.Open(fileName)
 	if err != nil {
@@ -143,8 +147,29 @@ func dumpSchema(schemafile *os.File, p *PredSchema) {
 		schemafile.WriteString("}\n")
 	}
 }
+func generateTriples(id string, predicate string, val string, config *Config) []string {
+	var output []string
+	if _, ok := (*config).Predicates[predicate]; ok {
+		predicateType := (*config).Predicates[predicate].Type
+		switch {
+		case predicateType == "datetime":
+			for _, f := range (*config).Predicates[predicate].Format {
+				t, err := time.Parse(f, val)
+				if err == nil {
+					val = t.Format("2006-01-02T15:04:05Z")
+					break
+				}
 
-func cvslineToTriples(line []string, headers []string, indexOfStart int, config Config, p *PredSchema) ([]string, error) {
+			}
+			break
+
+		}
+	}
+
+	output = append(output, fmt.Sprintf(`<_:k_%s> <%s> "%s" .`, id, predicate, val))
+	return output
+}
+func cvslineToTriples(line []string, headers []string, indexOfStart int, config *Config, p *PredSchema) ([]string, error) {
 	var output []string
 	var out string
 	id := line[0]
@@ -170,32 +195,13 @@ func cvslineToTriples(line []string, headers []string, indexOfStart int, config 
 					list := strings.Split(line[i][1:len(line[i])-1], "\"")
 					for _, v := range list {
 						if v != "" && v != "," {
-							out = fmt.Sprintf(`<_:k_%s> <%s> "%s" .`, id, predicate, v)
-							output = append(output, out)
+							output = append(output, generateTriples(id, predicate, v, config)...)
 						}
 					}
 
 				} else {
-					val := line[i]
-					if _, ok := config.Predicates[predicate]; ok {
-						predicateType := config.Predicates[predicate].Type
-						switch {
-						case predicateType == "datetime":
-							for _, f := range config.Predicates[predicate].Format {
-								t, err := time.Parse(f, val)
-								if err == nil {
-									val = t.Format("2006-01-02T15:04:05Z")
-									break
-								}
+					output = append(output, generateTriples(id, predicate, line[i], config)...)
 
-							}
-							break
-
-						}
-					}
-
-					out = fmt.Sprintf(`<_:k_%s> <%s> "%s" .`, id, predicate, val)
-					output = append(output, out)
 				}
 			}
 		}
@@ -264,7 +270,7 @@ func processCsv(f *os.File, o *os.File, p *PredSchema) {
 		}
 		if err == nil {
 			i += 1
-			out, err := cvslineToTriples(rec, headers, indexOfStart, config, p)
+			out, err := cvslineToTriples(rec, headers, indexOfStart, &config, p)
 			if err != nil {
 				log.Fatal(errors.New(fmt.Sprintf("%s at  line %d", err.Error(), i)))
 			}
