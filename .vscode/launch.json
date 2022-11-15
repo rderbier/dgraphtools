@@ -98,7 +98,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/neocsvtordf",
-            "args": ["-f=/Users/raph/Documents/Indykite/dgraph_sample.csv"]
+            "args": ["-f=../../sample/neo/neomovies.csv","-c=../../sample/neo/config.json","-o=../../sample/neo/out.rdf"]
         }
     ]
 }

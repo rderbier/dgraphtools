@@ -1,0 +1,799 @@
+<_:k_0> <dgraph.type> "Movie" .
+<_:k_0> <released> "1999" .
+<_:k_0> <tagline> "Welcome to the Real World" .
+<_:k_0> <title> "The Matrix" .
+<_:k_1> <dgraph.type> "Person" .
+<_:k_1> <dgraph.type> "Start" .
+<_:k_1> <born> "1964" .
+<_:k_1> <name> "Keanu Reeves" .
+<_:k_2> <dgraph.type> "Person" .
+<_:k_2> <born> "1967" .
+<_:k_2> <name> "Carrie-Anne Moss" .
+<_:k_3> <dgraph.type> "Person" .
+<_:k_3> <born> "1961" .
+<_:k_3> <name> "Laurence Fishburne" .
+<_:k_4> <dgraph.type> "Person" .
+<_:k_4> <born> "1960" .
+<_:k_4> <name> "Hugo Weaving" .
+<_:k_5> <dgraph.type> "Person" .
+<_:k_5> <born> "1967" .
+<_:k_5> <name> "Lilly Wachowski" .
+<_:k_6> <dgraph.type> "Person" .
+<_:k_6> <born> "1965" .
+<_:k_6> <name> "Lana Wachowski" .
+<_:k_7> <dgraph.type> "Person" .
+<_:k_7> <born> "1952" .
+<_:k_7> <name> "Joel Silver" .
+<_:k_8> <dgraph.type> "Person" .
+<_:k_8> <born> "1978" .
+<_:k_8> <name> "Emil Eifrem" .
+<_:k_9> <dgraph.type> "Movie" .
+<_:k_9> <released> "2003" .
+<_:k_9> <tagline> "Free your mind" .
+<_:k_9> <title> "The Matrix Reloaded" .
+<_:k_10> <dgraph.type> "Movie" .
+<_:k_10> <released> "2003" .
+<_:k_10> <tagline> "Everything that has a beginning has an end" .
+<_:k_10> <title> "The Matrix Revolutions" .
+<_:k_11> <dgraph.type> "Movie" .
+<_:k_11> <released> "1997" .
+<_:k_11> <tagline> "Evil has its winning ways" .
+<_:k_11> <title> "The Devil's Advocate" .
+<_:k_12> <dgraph.type> "Person" .
+<_:k_12> <born> "1975" .
+<_:k_12> <name> "Charlize Theron" .
+<_:k_13> <dgraph.type> "Person" .
+<_:k_13> <born> "1940" .
+<_:k_13> <name> "Al Pacino" .
+<_:k_14> <dgraph.type> "Person" .
+<_:k_14> <born> "1944" .
+<_:k_14> <name> "Taylor Hackford" .
+<_:k_15> <dgraph.type> "Movie" .
+<_:k_15> <released> "1992" .
+<_:k_15> <tagline> "In the heart of the nation's capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth." .
+<_:k_15> <title> "A Few Good Men" .
+<_:k_16> <dgraph.type> "Person" .
+<_:k_16> <born> "1962" .
+<_:k_16> <name> "Tom Cruise" .
+<_:k_17> <dgraph.type> "Person" .
+<_:k_17> <born> "1937" .
+<_:k_17> <name> "Jack Nicholson" .
+<_:k_18> <dgraph.type> "Person" .
+<_:k_18> <born> "1962" .
+<_:k_18> <name> "Demi Moore" .
+<_:k_19> <dgraph.type> "Person" .
+<_:k_19> <born> "1958" .
+<_:k_19> <name> "Kevin Bacon" .
+<_:k_20> <dgraph.type> "Person" .
+<_:k_20> <born> "1966" .
+<_:k_20> <name> "Kiefer Sutherland" .
+<_:k_21> <dgraph.type> "Person" .
+<_:k_21> <born> "1971" .
+<_:k_21> <name> "Noah Wyle" .
+<_:k_22> <dgraph.type> "Person" .
+<_:k_22> <born> "1968" .
+<_:k_22> <name> "Cuba Gooding Jr." .
+<_:k_23> <dgraph.type> "Person" .
+<_:k_23> <born> "1957" .
+<_:k_23> <name> "Kevin Pollak" .
+<_:k_24> <dgraph.type> "Person" .
+<_:k_24> <born> "1943" .
+<_:k_24> <name> "J.T. Walsh" .
+<_:k_25> <dgraph.type> "Person" .
+<_:k_25> <born> "1967" .
+<_:k_25> <name> "James Marshall" .
+<_:k_26> <dgraph.type> "Person" .
+<_:k_26> <born> "1948" .
+<_:k_26> <name> "Christopher Guest" .
+<_:k_27> <dgraph.type> "Person" .
+<_:k_27> <born> "1947" .
+<_:k_27> <name> "Rob Reiner" .
+<_:k_28> <dgraph.type> "Person" .
+<_:k_28> <born> "1961" .
+<_:k_28> <name> "Aaron Sorkin" .
+<_:k_29> <dgraph.type> "Movie" .
+<_:k_29> <released> "1986" .
+<_:k_29> <tagline> "I feel the need, the need for speed." .
+<_:k_29> <title> "Top Gun" .
+<_:k_30> <dgraph.type> "Person" .
+<_:k_30> <born> "1957" .
+<_:k_30> <name> "Kelly McGillis" .
+<_:k_31> <dgraph.type> "Person" .
+<_:k_31> <born> "1959" .
+<_:k_31> <name> "Val Kilmer" .
+<_:k_32> <dgraph.type> "Person" .
+<_:k_32> <born> "1962" .
+<_:k_32> <name> "Anthony Edwards" .
+<_:k_33> <dgraph.type> "Person" .
+<_:k_33> <born> "1933" .
+<_:k_33> <name> "Tom Skerritt" .
+<_:k_34> <dgraph.type> "Person" .
+<_:k_34> <born> "1961" .
+<_:k_34> <name> "Meg Ryan" .
+<_:k_35> <dgraph.type> "Person" .
+<_:k_35> <born> "1944" .
+<_:k_35> <name> "Tony Scott" .
+<_:k_36> <dgraph.type> "Person" .
+<_:k_36> <born> "1941" .
+<_:k_36> <name> "Jim Cash" .
+<_:k_37> <dgraph.type> "Movie" .
+<_:k_37> <released> "2000" .
+<_:k_37> <tagline> "The rest of his life begins now." .
+<_:k_37> <title> "Jerry Maguire" .
+<_:k_38> <dgraph.type> "Person" .
+<_:k_38> <born> "1969" .
+<_:k_38> <name> "Renee Zellweger" .
+<_:k_39> <dgraph.type> "Person" .
+<_:k_39> <born> "1962" .
+<_:k_39> <name> "Kelly Preston" .
+<_:k_40> <dgraph.type> "Person" .
+<_:k_40> <born> "1974" .
+<_:k_40> <name> "Jerry O'Connell" .
+<_:k_41> <dgraph.type> "Person" .
+<_:k_41> <born> "1970" .
+<_:k_41> <name> "Jay Mohr" .
+<_:k_42> <dgraph.type> "Person" .
+<_:k_42> <born> "1961" .
+<_:k_42> <name> "Bonnie Hunt" .
+<_:k_43> <dgraph.type> "Person" .
+<_:k_43> <born> "1971" .
+<_:k_43> <name> "Regina King" .
+<_:k_44> <dgraph.type> "Person" .
+<_:k_44> <born> "1996" .
+<_:k_44> <name> "Jonathan Lipnicki" .
+<_:k_45> <dgraph.type> "Person" .
+<_:k_45> <born> "1957" .
+<_:k_45> <name> "Cameron Crowe" .
+<_:k_46> <dgraph.type> "Movie" .
+<_:k_46> <released> "1986" .
+<_:k_46> <tagline> "For some, it's the last real taste of innocence, and the first real taste of life. But for everyone, it's the time that memories are made of." .
+<_:k_46> <title> "Stand By Me" .
+<_:k_47> <dgraph.type> "Person" .
+<_:k_47> <born> "1970" .
+<_:k_47> <name> "River Phoenix" .
+<_:k_48> <dgraph.type> "Person" .
+<_:k_48> <born> "1971" .
+<_:k_48> <name> "Corey Feldman" .
+<_:k_49> <dgraph.type> "Person" .
+<_:k_49> <born> "1972" .
+<_:k_49> <name> "Wil Wheaton" .
+<_:k_50> <dgraph.type> "Person" .
+<_:k_50> <born> "1966" .
+<_:k_50> <name> "John Cusack" .
+<_:k_51> <dgraph.type> "Person" .
+<_:k_51> <born> "1942" .
+<_:k_51> <name> "Marshall Bell" .
+<_:k_52> <dgraph.type> "Movie" .
+<_:k_52> <released> "1997" .
+<_:k_52> <tagline> "A comedy from the heart that goes for the throat." .
+<_:k_52> <title> "As Good as It Gets" .
+<_:k_53> <dgraph.type> "Person" .
+<_:k_53> <born> "1963" .
+<_:k_53> <name> "Helen Hunt" .
+<_:k_54> <dgraph.type> "Person" .
+<_:k_54> <born> "1963" .
+<_:k_54> <name> "Greg Kinnear" .
+<_:k_55> <dgraph.type> "Person" .
+<_:k_55> <born> "1940" .
+<_:k_55> <name> "James L. Brooks" .
+<_:k_56> <dgraph.type> "Movie" .
+<_:k_56> <released> "1998" .
+<_:k_56> <tagline> "After life there is more. The end is just the beginning." .
+<_:k_56> <title> "What Dreams May Come" .
+<_:k_57> <dgraph.type> "Person" .
+<_:k_57> <born> "1960" .
+<_:k_57> <name> "Annabella Sciorra" .
+<_:k_58> <dgraph.type> "Person" .
+<_:k_58> <born> "1929" .
+<_:k_58> <name> "Max von Sydow" .
+<_:k_59> <dgraph.type> "Person" .
+<_:k_59> <born> "1942" .
+<_:k_59> <name> "Werner Herzog" .
+<_:k_60> <dgraph.type> "Person" .
+<_:k_60> <born> "1951" .
+<_:k_60> <name> "Robin Williams" .
+<_:k_61> <dgraph.type> "Person" .
+<_:k_61> <born> "1956" .
+<_:k_61> <name> "Vincent Ward" .
+<_:k_62> <dgraph.type> "Movie" .
+<_:k_62> <released> "1999" .
+<_:k_62> <tagline> "First loves last. Forever." .
+<_:k_62> <title> "Snow Falling on Cedars" .
+<_:k_63> <dgraph.type> "Person" .
+<_:k_63> <born> "1970" .
+<_:k_63> <name> "Ethan Hawke" .
+<_:k_64> <dgraph.type> "Person" .
+<_:k_64> <born> "1971" .
+<_:k_64> <name> "Rick Yune" .
+<_:k_65> <dgraph.type> "Person" .
+<_:k_65> <born> "1940" .
+<_:k_65> <name> "James Cromwell" .
+<_:k_66> <dgraph.type> "Person" .
+<_:k_66> <born> "1953" .
+<_:k_66> <name> "Scott Hicks" .
+<_:k_67> <dgraph.type> "Movie" .
+<_:k_67> <released> "1998" .
+<_:k_67> <tagline> "At odds in life... in love on-line." .
+<_:k_67> <title> "You've Got Mail" .
+<_:k_68> <dgraph.type> "Person" .
+<_:k_68> <born> "1968" .
+<_:k_68> <name> "Parker Posey" .
+<_:k_69> <dgraph.type> "Person" .
+<_:k_69> <born> "1973" .
+<_:k_69> <name> "Dave Chappelle" .
+<_:k_70> <dgraph.type> "Person" .
+<_:k_70> <born> "1967" .
+<_:k_70> <name> "Steve Zahn" .
+<_:k_71> <dgraph.type> "Person" .
+<_:k_71> <born> "1956" .
+<_:k_71> <name> "Tom Hanks" .
+<_:k_72> <dgraph.type> "Person" .
+<_:k_72> <born> "1941" .
+<_:k_72> <name> "Nora Ephron" .
+<_:k_73> <dgraph.type> "Movie" .
+<_:k_73> <released> "1993" .
+<_:k_73> <tagline> "What if someone you never met, someone you never saw, someone you never knew was the only someone for you?" .
+<_:k_73> <title> "Sleepless in Seattle" .
+<_:k_74> <dgraph.type> "Person" .
+<_:k_74> <born> "1956" .
+<_:k_74> <name> "Rita Wilson" .
+<_:k_75> <dgraph.type> "Person" .
+<_:k_75> <born> "1953" .
+<_:k_75> <name> "Bill Pullman" .
+<_:k_76> <dgraph.type> "Person" .
+<_:k_76> <born> "1949" .
+<_:k_76> <name> "Victor Garber" .
+<_:k_77> <dgraph.type> "Person" .
+<_:k_77> <born> "1962" .
+<_:k_77> <name> "Rosie O'Donnell" .
+<_:k_78> <dgraph.type> "Movie" .
+<_:k_78> <released> "1990" .
+<_:k_78> <tagline> "A story of love, lava and burning desire." .
+<_:k_78> <title> "Joe Versus the Volcano" .
+<_:k_79> <dgraph.type> "Person" .
+<_:k_79> <born> "1950" .
+<_:k_79> <name> "John Patrick Stanley" .
+<_:k_80> <dgraph.type> "Person" .
+<_:k_80> <born> "1956" .
+<_:k_80> <name> "Nathan Lane" .
+<_:k_81> <dgraph.type> "Movie" .
+<_:k_81> <released> "1998" .
+<_:k_81> <tagline> "Can two friends sleep together and still love each other in the morning?" .
+<_:k_81> <title> "When Harry Met Sally" .
+<_:k_82> <dgraph.type> "Person" .
+<_:k_82> <born> "1948" .
+<_:k_82> <name> "Billy Crystal" .
+<_:k_83> <dgraph.type> "Person" .
+<_:k_83> <born> "1956" .
+<_:k_83> <name> "Carrie Fisher" .
+<_:k_84> <dgraph.type> "Person" .
+<_:k_84> <born> "1949" .
+<_:k_84> <name> "Bruno Kirby" .
+<_:k_85> <dgraph.type> "Movie" .
+<_:k_85> <released> "1996" .
+<_:k_85> <tagline> "In every life there comes a time when that thing you dream becomes that thing you do" .
+<_:k_85> <title> "That Thing You Do" .
+<_:k_86> <dgraph.type> "Person" .
+<_:k_86> <born> "1977" .
+<_:k_86> <name> "Liv Tyler" .
+<_:k_87> <dgraph.type> "Movie" .
+<_:k_87> <released> "2000" .
+<_:k_87> <tagline> "Pain heals, Chicks dig scars... Glory lasts forever" .
+<_:k_87> <title> "The Replacements" .
+<_:k_88> <dgraph.type> "Person" .
+<_:k_88> <born> "1970" .
+<_:k_88> <name> "Brooke Langton" .
+<_:k_89> <dgraph.type> "Person" .
+<_:k_89> <born> "1930" .
+<_:k_89> <name> "Gene Hackman" .
+<_:k_90> <dgraph.type> "Person" .
+<_:k_90> <born> "1968" .
+<_:k_90> <name> "Orlando Jones" .
+<_:k_91> <dgraph.type> "Person" .
+<_:k_91> <born> "1950" .
+<_:k_91> <name> "Howard Deutch" .
+<_:k_92> <dgraph.type> "Movie" .
+<_:k_92> <released> "2006" .
+<_:k_92> <tagline> "Based on the extraordinary true story of one man's fight for freedom" .
+<_:k_92> <title> "RescueDawn" .
+<_:k_93> <dgraph.type> "Person" .
+<_:k_93> <born> "1974" .
+<_:k_93> <name> "Christian Bale" .
+<_:k_94> <dgraph.type> "Person" .
+<_:k_94> <born> "1954" .
+<_:k_94> <name> "Zach Grenier" .
+<_:k_95> <dgraph.type> "Movie" .
+<_:k_95> <released> "1996" .
+<_:k_95> <tagline> "Come as you are" .
+<_:k_95> <title> "The Birdcage" .
+<_:k_96> <dgraph.type> "Person" .
+<_:k_96> <born> "1931" .
+<_:k_96> <name> "Mike Nichols" .
+<_:k_97> <dgraph.type> "Movie" .
+<_:k_97> <released> "1992" .
+<_:k_97> <tagline> "It's a hell of a thing, killing a man" .
+<_:k_97> <title> "Unforgiven" .
+<_:k_98> <dgraph.type> "Person" .
+<_:k_98> <born> "1930" .
+<_:k_98> <name> "Richard Harris" .
+<_:k_99> <dgraph.type> "Person" .
+<_:k_99> <born> "1930" .
+<_:k_99> <name> "Clint Eastwood" .
+<_:k_100> <dgraph.type> "Movie" .
+<_:k_100> <released> "1995" .
+<_:k_100> <tagline> "The hottest data on earth. In the coolest head in town" .
+<_:k_100> <title> "Johnny Mnemonic" .
+<_:k_101> <dgraph.type> "Person" .
+<_:k_101> <born> "1947" .
+<_:k_101> <name> "Takeshi Kitano" .
+<_:k_102> <dgraph.type> "Person" .
+<_:k_102> <born> "1968" .
+<_:k_102> <name> "Dina Meyer" .
+<_:k_103> <dgraph.type> "Person" .
+<_:k_103> <born> "1958" .
+<_:k_103> <name> "Ice-T" .
+<_:k_104> <dgraph.type> "Person" .
+<_:k_104> <born> "1953" .
+<_:k_104> <name> "Robert Longo" .
+<_:k_105> <dgraph.type> "Movie" .
+<_:k_105> <released> "2012" .
+<_:k_105> <tagline> "Everything is connected" .
+<_:k_105> <title> "Cloud Atlas" .
+<_:k_106> <dgraph.type> "Person" .
+<_:k_106> <born> "1966" .
+<_:k_106> <name> "Halle Berry" .
+<_:k_107> <dgraph.type> "Person" .
+<_:k_107> <born> "1949" .
+<_:k_107> <name> "Jim Broadbent" .
+<_:k_108> <dgraph.type> "Person" .
+<_:k_108> <born> "1965" .
+<_:k_108> <name> "Tom Tykwer" .
+<_:k_109> <dgraph.type> "Person" .
+<_:k_109> <born> "1969" .
+<_:k_109> <name> "David Mitchell" .
+<_:k_110> <dgraph.type> "Person" .
+<_:k_110> <born> "1961" .
+<_:k_110> <name> "Stefan Arndt" .
+<_:k_111> <dgraph.type> "Movie" .
+<_:k_111> <released> "2006" .
+<_:k_111> <tagline> "Break The Codes" .
+<_:k_111> <title> "The Da Vinci Code" .
+<_:k_112> <dgraph.type> "Person" .
+<_:k_112> <born> "1939" .
+<_:k_112> <name> "Ian McKellen" .
+<_:k_113> <dgraph.type> "Person" .
+<_:k_113> <born> "1976" .
+<_:k_113> <name> "Audrey Tautou" .
+<_:k_114> <dgraph.type> "Person" .
+<_:k_114> <born> "1971" .
+<_:k_114> <name> "Paul Bettany" .
+<_:k_115> <dgraph.type> "Person" .
+<_:k_115> <born> "1954" .
+<_:k_115> <name> "Ron Howard" .
+<_:k_116> <dgraph.type> "Movie" .
+<_:k_116> <released> "2006" .
+<_:k_116> <tagline> "Freedom! Forever!" .
+<_:k_116> <title> "V for Vendetta" .
+<_:k_117> <dgraph.type> "Person" .
+<_:k_117> <born> "1981" .
+<_:k_117> <name> "Natalie Portman" .
+<_:k_118> <dgraph.type> "Person" .
+<_:k_118> <born> "1946" .
+<_:k_118> <name> "Stephen Rea" .
+<_:k_119> <dgraph.type> "Person" .
+<_:k_119> <born> "1940" .
+<_:k_119> <name> "John Hurt" .
+<_:k_120> <dgraph.type> "Person" .
+<_:k_120> <born> "1967" .
+<_:k_120> <name> "Ben Miles" .
+<_:k_121> <dgraph.type> "Movie" .
+<_:k_121> <released> "2008" .
+<_:k_121> <tagline> "Speed has no limits" .
+<_:k_121> <title> "Speed Racer" .
+<_:k_122> <dgraph.type> "Person" .
+<_:k_122> <born> "1985" .
+<_:k_122> <name> "Emile Hirsch" .
+<_:k_123> <dgraph.type> "Person" .
+<_:k_123> <born> "1960" .
+<_:k_123> <name> "John Goodman" .
+<_:k_124> <dgraph.type> "Person" .
+<_:k_124> <born> "1946" .
+<_:k_124> <name> "Susan Sarandon" .
+<_:k_125> <dgraph.type> "Person" .
+<_:k_125> <born> "1966" .
+<_:k_125> <name> "Matthew Fox" .
+<_:k_126> <dgraph.type> "Person" .
+<_:k_126> <born> "1980" .
+<_:k_126> <name> "Christina Ricci" .
+<_:k_127> <dgraph.type> "Person" .
+<_:k_127> <born> "1982" .
+<_:k_127> <name> "Rain" .
+<_:k_128> <dgraph.type> "Movie" .
+<_:k_128> <released> "2009" .
+<_:k_128> <tagline> "Prepare to enter a secret world of assassins" .
+<_:k_128> <title> "Ninja Assassin" .
+<_:k_129> <dgraph.type> "Person" .
+<_:k_129> <name> "Naomie Harris" .
+<_:k_130> <dgraph.type> "Movie" .
+<_:k_130> <released> "1999" .
+<_:k_130> <tagline> "Walk a mile you'll never forget." .
+<_:k_130> <title> "The Green Mile" .
+<_:k_131> <dgraph.type> "Person" .
+<_:k_131> <born> "1957" .
+<_:k_131> <name> "Michael Clarke Duncan" .
+<_:k_132> <dgraph.type> "Person" .
+<_:k_132> <born> "1953" .
+<_:k_132> <name> "David Morse" .
+<_:k_133> <dgraph.type> "Person" .
+<_:k_133> <born> "1968" .
+<_:k_133> <name> "Sam Rockwell" .
+<_:k_134> <dgraph.type> "Person" .
+<_:k_134> <born> "1955" .
+<_:k_134> <name> "Gary Sinise" .
+<_:k_135> <dgraph.type> "Person" .
+<_:k_135> <born> "1959" .
+<_:k_135> <name> "Patricia Clarkson" .
+<_:k_136> <dgraph.type> "Person" .
+<_:k_136> <born> "1959" .
+<_:k_136> <name> "Frank Darabont" .
+<_:k_137> <dgraph.type> "Movie" .
+<_:k_137> <released> "2008" .
+<_:k_137> <tagline> "400 million people were waiting for the truth." .
+<_:k_137> <title> "Frost/Nixon" .
+<_:k_138> <dgraph.type> "Person" .
+<_:k_138> <born> "1938" .
+<_:k_138> <name> "Frank Langella" .
+<_:k_139> <dgraph.type> "Person" .
+<_:k_139> <born> "1969" .
+<_:k_139> <name> "Michael Sheen" .
+<_:k_140> <dgraph.type> "Person" .
+<_:k_140> <born> "1960" .
+<_:k_140> <name> "Oliver Platt" .
+<_:k_141> <dgraph.type> "Movie" .
+<_:k_141> <released> "1992" .
+<_:k_141> <tagline> "He didn't want law. He wanted justice." .
+<_:k_141> <title> "Hoffa" .
+<_:k_142> <dgraph.type> "Person" .
+<_:k_142> <born> "1944" .
+<_:k_142> <name> "Danny DeVito" .
+<_:k_143> <dgraph.type> "Person" .
+<_:k_143> <born> "1965" .
+<_:k_143> <name> "John C. Reilly" .
+<_:k_144> <dgraph.type> "Movie" .
+<_:k_144> <released> "1995" .
+<_:k_144> <tagline> "Houston, we have a problem." .
+<_:k_144> <title> "Apollo 13" .
+<_:k_145> <dgraph.type> "Person" .
+<_:k_145> <born> "1950" .
+<_:k_145> <name> "Ed Harris" .
+<_:k_146> <dgraph.type> "Person" .
+<_:k_146> <born> "1955" .
+<_:k_146> <name> "Bill Paxton" .
+<_:k_147> <dgraph.type> "Movie" .
+<_:k_147> <released> "1996" .
+<_:k_147> <tagline> "Don't Breathe. Don't Look Back." .
+<_:k_147> <title> "Twister" .
+<_:k_148> <dgraph.type> "Person" .
+<_:k_148> <born> "1967" .
+<_:k_148> <name> "Philip Seymour Hoffman" .
+<_:k_149> <dgraph.type> "Person" .
+<_:k_149> <born> "1943" .
+<_:k_149> <name> "Jan de Bont" .
+<_:k_150> <dgraph.type> "Movie" .
+<_:k_150> <released> "2000" .
+<_:k_150> <tagline> "At the edge of the world, his journey begins." .
+<_:k_150> <title> "Cast Away" .
+<_:k_151> <dgraph.type> "Person" .
+<_:k_151> <born> "1951" .
+<_:k_151> <name> "Robert Zemeckis" .
+<_:k_152> <dgraph.type> "Movie" .
+<_:k_152> <released> "1975" .
+<_:k_152> <tagline> "If he's crazy, what does that make you?" .
+<_:k_152> <title> "One Flew Over the Cuckoo's Nest" .
+<_:k_153> <dgraph.type> "Person" .
+<_:k_153> <born> "1932" .
+<_:k_153> <name> "Milos Forman" .
+<_:k_154> <dgraph.type> "Movie" .
+<_:k_154> <released> "2003" .
+<_:k_154> <title> "Something's Gotta Give" .
+<_:k_155> <dgraph.type> "Person" .
+<_:k_155> <born> "1946" .
+<_:k_155> <name> "Diane Keaton" .
+<_:k_156> <dgraph.type> "Person" .
+<_:k_156> <born> "1949" .
+<_:k_156> <name> "Nancy Meyers" .
+<_:k_157> <dgraph.type> "Movie" .
+<_:k_157> <released> "1999" .
+<_:k_157> <tagline> "One robot's 200 year journey to become an ordinary man." .
+<_:k_157> <title> "Bicentennial Man" .
+<_:k_158> <dgraph.type> "Person" .
+<_:k_158> <born> "1958" .
+<_:k_158> <name> "Chris Columbus" .
+<_:k_159> <dgraph.type> "Movie" .
+<_:k_159> <released> "2007" .
+<_:k_159> <tagline> "A stiff drink. A little mascara. A lot of nerve. Who said they couldn't bring down the Soviet empire." .
+<_:k_159> <title> "Charlie Wilson's War" .
+<_:k_160> <dgraph.type> "Person" .
+<_:k_160> <born> "1967" .
+<_:k_160> <name> "Julia Roberts" .
+<_:k_161> <dgraph.type> "Movie" .
+<_:k_161> <released> "2004" .
+<_:k_161> <tagline> "This Holiday Season… Believe" .
+<_:k_161> <title> "The Polar Express" .
+<_:k_162> <dgraph.type> "Movie" .
+<_:k_162> <released> "1992" .
+<_:k_162> <tagline> "Once in a lifetime you get a chance to do something different." .
+<_:k_162> <title> "A League of Their Own" .
+<_:k_163> <dgraph.type> "Person" .
+<_:k_163> <born> "1954" .
+<_:k_163> <name> "Madonna" .
+<_:k_164> <dgraph.type> "Person" .
+<_:k_164> <born> "1956" .
+<_:k_164> <name> "Geena Davis" .
+<_:k_165> <dgraph.type> "Person" .
+<_:k_165> <born> "1963" .
+<_:k_165> <name> "Lori Petty" .
+<_:k_166> <dgraph.type> "Person" .
+<_:k_166> <born> "1943" .
+<_:k_166> <name> "Penny Marshall" .
+<_:k_167> <dgraph.type> "Person" .
+<_:k_167> <name> "Paul Blythe" .
+<_:k_168> <dgraph.type> "Person" .
+<_:k_168> <name> "Angela Scope" .
+<_:k_169> <dgraph.type> "Person" .
+<_:k_169> <name> "Jessica Thompson" .
+<_:k_170> <dgraph.type> "Person" .
+<_:k_170> <name> "James Thompson" .
+<_:k_1> <ACTED_IN> <_:k_0> (roles="["Neo"]") .
+<_:k_2> <ACTED_IN> <_:k_0> (roles="["Trinity"]") .
+<_:k_3> <ACTED_IN> <_:k_0> (roles="["Morpheus"]") .
+<_:k_4> <ACTED_IN> <_:k_0> (roles="["Agent Smith"]") .
+<_:k_5> <DIRECTED> <_:k_0>  .
+<_:k_6> <DIRECTED> <_:k_0>  .
+<_:k_7> <PRODUCED> <_:k_0>  .
+<_:k_8> <ACTED_IN> <_:k_0> (roles="["Emil"]") .
+<_:k_1> <ACTED_IN> <_:k_9> (roles="["Neo"]") .
+<_:k_2> <ACTED_IN> <_:k_9> (roles="["Trinity"]") .
+<_:k_3> <ACTED_IN> <_:k_9> (roles="["Morpheus"]") .
+<_:k_4> <ACTED_IN> <_:k_9> (roles="["Agent Smith"]") .
+<_:k_5> <DIRECTED> <_:k_9>  .
+<_:k_6> <DIRECTED> <_:k_9>  .
+<_:k_7> <PRODUCED> <_:k_9>  .
+<_:k_1> <ACTED_IN> <_:k_10> (roles="["Neo"]") .
+<_:k_2> <ACTED_IN> <_:k_10> (roles="["Trinity"]") .
+<_:k_3> <ACTED_IN> <_:k_10> (roles="["Morpheus"]") .
+<_:k_4> <ACTED_IN> <_:k_10> (roles="["Agent Smith"]") .
+<_:k_5> <DIRECTED> <_:k_10>  .
+<_:k_6> <DIRECTED> <_:k_10>  .
+<_:k_7> <PRODUCED> <_:k_10>  .
+<_:k_1> <ACTED_IN> <_:k_11> (roles="["Kevin Lomax"]") .
+<_:k_12> <ACTED_IN> <_:k_11> (roles="["Mary Ann Lomax"]") .
+<_:k_13> <ACTED_IN> <_:k_11> (roles="["John Milton"]") .
+<_:k_14> <DIRECTED> <_:k_11>  .
+<_:k_16> <ACTED_IN> <_:k_15> (roles="["Lt. Daniel Kaffee"]") .
+<_:k_17> <ACTED_IN> <_:k_15> (roles="["Col. Nathan R. Jessup"]") .
+<_:k_18> <ACTED_IN> <_:k_15> (roles="["Lt. Cdr. JoAnne Galloway"]") .
+<_:k_19> <ACTED_IN> <_:k_15> (roles="["Capt. Jack Ross"]") .
+<_:k_20> <ACTED_IN> <_:k_15> (roles="["Lt. Jonathan Kendrick"]") .
+<_:k_21> <ACTED_IN> <_:k_15> (roles="["Cpl. Jeffrey Barnes"]") .
+<_:k_22> <ACTED_IN> <_:k_15> (roles="["Cpl. Carl Hammaker"]") .
+<_:k_23> <ACTED_IN> <_:k_15> (roles="["Lt. Sam Weinberg"]") .
+<_:k_24> <ACTED_IN> <_:k_15> (roles="["Lt. Col. Matthew Andrew Markinson"]") .
+<_:k_25> <ACTED_IN> <_:k_15> (roles="["Pfc. Louden Downey"]") .
+<_:k_26> <ACTED_IN> <_:k_15> (roles="["Dr. Stone"]") .
+<_:k_28> <ACTED_IN> <_:k_15> (roles="["Man in Bar"]") .
+<_:k_27> <DIRECTED> <_:k_15>  .
+<_:k_28> <WROTE> <_:k_15>  .
+<_:k_16> <ACTED_IN> <_:k_29> (roles="["Maverick"]") .
+<_:k_30> <ACTED_IN> <_:k_29> (roles="["Charlie"]") .
+<_:k_31> <ACTED_IN> <_:k_29> (roles="["Iceman"]") .
+<_:k_32> <ACTED_IN> <_:k_29> (roles="["Goose"]") .
+<_:k_33> <ACTED_IN> <_:k_29> (roles="["Viper"]") .
+<_:k_34> <ACTED_IN> <_:k_29> (roles="["Carole"]") .
+<_:k_35> <DIRECTED> <_:k_29>  .
+<_:k_36> <WROTE> <_:k_29>  .
+<_:k_16> <ACTED_IN> <_:k_37> (roles="["Jerry Maguire"]") .
+<_:k_22> <ACTED_IN> <_:k_37> (roles="["Rod Tidwell"]") .
+<_:k_38> <ACTED_IN> <_:k_37> (roles="["Dorothy Boyd"]") .
+<_:k_39> <ACTED_IN> <_:k_37> (roles="["Avery Bishop"]") .
+<_:k_40> <ACTED_IN> <_:k_37> (roles="["Frank Cushman"]") .
+<_:k_41> <ACTED_IN> <_:k_37> (roles="["Bob Sugar"]") .
+<_:k_42> <ACTED_IN> <_:k_37> (roles="["Laurel Boyd"]") .
+<_:k_43> <ACTED_IN> <_:k_37> (roles="["Marcee Tidwell"]") .
+<_:k_44> <ACTED_IN> <_:k_37> (roles="["Ray Boyd"]") .
+<_:k_45> <DIRECTED> <_:k_37>  .
+<_:k_45> <PRODUCED> <_:k_37>  .
+<_:k_45> <WROTE> <_:k_37>  .
+<_:k_49> <ACTED_IN> <_:k_46> (roles="["Gordie Lachance"]") .
+<_:k_47> <ACTED_IN> <_:k_46> (roles="["Chris Chambers"]") .
+<_:k_40> <ACTED_IN> <_:k_46> (roles="["Vern Tessio"]") .
+<_:k_48> <ACTED_IN> <_:k_46> (roles="["Teddy Duchamp"]") .
+<_:k_50> <ACTED_IN> <_:k_46> (roles="["Denny Lachance"]") .
+<_:k_20> <ACTED_IN> <_:k_46> (roles="["Ace Merrill"]") .
+<_:k_51> <ACTED_IN> <_:k_46> (roles="["Mr. Lachance"]") .
+<_:k_27> <DIRECTED> <_:k_46>  .
+<_:k_17> <ACTED_IN> <_:k_52> (roles="["Melvin Udall"]") .
+<_:k_53> <ACTED_IN> <_:k_52> (roles="["Carol Connelly"]") .
+<_:k_54> <ACTED_IN> <_:k_52> (roles="["Simon Bishop"]") .
+<_:k_22> <ACTED_IN> <_:k_52> (roles="["Frank Sachs"]") .
+<_:k_55> <DIRECTED> <_:k_52>  .
+<_:k_60> <ACTED_IN> <_:k_56> (roles="["Chris Nielsen"]") .
+<_:k_22> <ACTED_IN> <_:k_56> (roles="["Albert Lewis"]") .
+<_:k_57> <ACTED_IN> <_:k_56> (roles="["Annie Collins-Nielsen"]") .
+<_:k_58> <ACTED_IN> <_:k_56> (roles="["The Tracker"]") .
+<_:k_59> <ACTED_IN> <_:k_56> (roles="["The Face"]") .
+<_:k_61> <DIRECTED> <_:k_56>  .
+<_:k_63> <ACTED_IN> <_:k_62> (roles="["Ishmael Chambers"]") .
+<_:k_64> <ACTED_IN> <_:k_62> (roles="["Kazuo Miyamoto"]") .
+<_:k_58> <ACTED_IN> <_:k_62> (roles="["Nels Gudmundsson"]") .
+<_:k_65> <ACTED_IN> <_:k_62> (roles="["Judge Fielding"]") .
+<_:k_66> <DIRECTED> <_:k_62>  .
+<_:k_71> <ACTED_IN> <_:k_67> (roles="["Joe Fox"]") .
+<_:k_34> <ACTED_IN> <_:k_67> (roles="["Kathleen Kelly"]") .
+<_:k_54> <ACTED_IN> <_:k_67> (roles="["Frank Navasky"]") .
+<_:k_68> <ACTED_IN> <_:k_67> (roles="["Patricia Eden"]") .
+<_:k_69> <ACTED_IN> <_:k_67> (roles="["Kevin Jackson"]") .
+<_:k_70> <ACTED_IN> <_:k_67> (roles="["George Pappas"]") .
+<_:k_72> <DIRECTED> <_:k_67>  .
+<_:k_71> <ACTED_IN> <_:k_73> (roles="["Sam Baldwin"]") .
+<_:k_34> <ACTED_IN> <_:k_73> (roles="["Annie Reed"]") .
+<_:k_74> <ACTED_IN> <_:k_73> (roles="["Suzy"]") .
+<_:k_75> <ACTED_IN> <_:k_73> (roles="["Walter"]") .
+<_:k_76> <ACTED_IN> <_:k_73> (roles="["Greg"]") .
+<_:k_77> <ACTED_IN> <_:k_73> (roles="["Becky"]") .
+<_:k_72> <DIRECTED> <_:k_73>  .
+<_:k_71> <ACTED_IN> <_:k_78> (roles="["Joe Banks"]") .
+<_:k_34> <ACTED_IN> <_:k_78> (roles="["DeDe","Angelica Graynamore","Patricia Graynamore"]") .
+<_:k_80> <ACTED_IN> <_:k_78> (roles="["Baw"]") .
+<_:k_79> <DIRECTED> <_:k_78>  .
+<_:k_82> <ACTED_IN> <_:k_81> (roles="["Harry Burns"]") .
+<_:k_34> <ACTED_IN> <_:k_81> (roles="["Sally Albright"]") .
+<_:k_83> <ACTED_IN> <_:k_81> (roles="["Marie"]") .
+<_:k_84> <ACTED_IN> <_:k_81> (roles="["Jess"]") .
+<_:k_27> <DIRECTED> <_:k_81>  .
+<_:k_27> <PRODUCED> <_:k_81>  .
+<_:k_72> <PRODUCED> <_:k_81>  .
+<_:k_72> <WROTE> <_:k_81>  .
+<_:k_71> <ACTED_IN> <_:k_85> (roles="["Mr. White"]") .
+<_:k_86> <ACTED_IN> <_:k_85> (roles="["Faye Dolan"]") .
+<_:k_12> <ACTED_IN> <_:k_85> (roles="["Tina"]") .
+<_:k_71> <DIRECTED> <_:k_85>  .
+<_:k_1> <ACTED_IN> <_:k_87> (roles="["Shane Falco"]") .
+<_:k_88> <ACTED_IN> <_:k_87> (roles="["Annabelle Farrell"]") .
+<_:k_89> <ACTED_IN> <_:k_87> (roles="["Jimmy McGinty"]") .
+<_:k_90> <ACTED_IN> <_:k_87> (roles="["Clifford Franklin"]") .
+<_:k_91> <DIRECTED> <_:k_87>  .
+<_:k_51> <ACTED_IN> <_:k_92> (roles="["Admiral"]") .
+<_:k_93> <ACTED_IN> <_:k_92> (roles="["Dieter Dengler"]") .
+<_:k_94> <ACTED_IN> <_:k_92> (roles="["Squad Leader"]") .
+<_:k_70> <ACTED_IN> <_:k_92> (roles="["Duane"]") .
+<_:k_59> <DIRECTED> <_:k_92>  .
+<_:k_60> <ACTED_IN> <_:k_95> (roles="["Armand Goldman"]") .
+<_:k_80> <ACTED_IN> <_:k_95> (roles="["Albert Goldman"]") .
+<_:k_89> <ACTED_IN> <_:k_95> (roles="["Sen. Kevin Keeley"]") .
+<_:k_96> <DIRECTED> <_:k_95>  .
+<_:k_98> <ACTED_IN> <_:k_97> (roles="["English Bob"]") .
+<_:k_99> <ACTED_IN> <_:k_97> (roles="["Bill Munny"]") .
+<_:k_89> <ACTED_IN> <_:k_97> (roles="["Little Bill Daggett"]") .
+<_:k_99> <DIRECTED> <_:k_97>  .
+<_:k_1> <ACTED_IN> <_:k_100> (roles="["Johnny Mnemonic"]") .
+<_:k_101> <ACTED_IN> <_:k_100> (roles="["Takahashi"]") .
+<_:k_102> <ACTED_IN> <_:k_100> (roles="["Jane"]") .
+<_:k_103> <ACTED_IN> <_:k_100> (roles="["J-Bone"]") .
+<_:k_104> <DIRECTED> <_:k_100>  .
+<_:k_71> <ACTED_IN> <_:k_105> (roles="["Zachry","Dr. Henry Goose","Isaac Sachs","Dermot Hoggins"]") .
+<_:k_4> <ACTED_IN> <_:k_105> (roles="["Bill Smoke","Haskell Moore","Tadeusz Kesselring","Nurse Noakes","Boardman Mephi","Old Georgie"]") .
+<_:k_106> <ACTED_IN> <_:k_105> (roles="["Luisa Rey","Jocasta Ayrs","Ovid","Meronym"]") .
+<_:k_107> <ACTED_IN> <_:k_105> (roles="["Vyvyan Ayrs","Captain Molyneux","Timothy Cavendish"]") .
+<_:k_108> <DIRECTED> <_:k_105>  .
+<_:k_5> <DIRECTED> <_:k_105>  .
+<_:k_6> <DIRECTED> <_:k_105>  .
+<_:k_109> <WROTE> <_:k_105>  .
+<_:k_110> <PRODUCED> <_:k_105>  .
+<_:k_71> <ACTED_IN> <_:k_111> (roles="["Dr. Robert Langdon"]") .
+<_:k_112> <ACTED_IN> <_:k_111> (roles="["Sir Leight Teabing"]") .
+<_:k_113> <ACTED_IN> <_:k_111> (roles="["Sophie Neveu"]") .
+<_:k_114> <ACTED_IN> <_:k_111> (roles="["Silas"]") .
+<_:k_115> <DIRECTED> <_:k_111>  .
+<_:k_4> <ACTED_IN> <_:k_116> (roles="["V"]") .
+<_:k_117> <ACTED_IN> <_:k_116> (roles="["Evey Hammond"]") .
+<_:k_118> <ACTED_IN> <_:k_116> (roles="["Eric Finch"]") .
+<_:k_119> <ACTED_IN> <_:k_116> (roles="["High Chancellor Adam Sutler"]") .
+<_:k_120> <ACTED_IN> <_:k_116> (roles="["Dascomb"]") .
+<_:k_25> <DIRECTED> <_:k_116>  .
+<_:k_5> <PRODUCED> <_:k_116>  .
+<_:k_6> <PRODUCED> <_:k_116>  .
+<_:k_7> <PRODUCED> <_:k_116>  .
+<_:k_5> <WROTE> <_:k_116>  .
+<_:k_6> <WROTE> <_:k_116>  .
+<_:k_122> <ACTED_IN> <_:k_121> (roles="["Speed Racer"]") .
+<_:k_123> <ACTED_IN> <_:k_121> (roles="["Pops"]") .
+<_:k_124> <ACTED_IN> <_:k_121> (roles="["Mom"]") .
+<_:k_125> <ACTED_IN> <_:k_121> (roles="["Racer X"]") .
+<_:k_126> <ACTED_IN> <_:k_121> (roles="["Trixie"]") .
+<_:k_127> <ACTED_IN> <_:k_121> (roles="["Taejo Togokahn"]") .
+<_:k_120> <ACTED_IN> <_:k_121> (roles="["Cass Jones"]") .
+<_:k_5> <DIRECTED> <_:k_121>  .
+<_:k_6> <DIRECTED> <_:k_121>  .
+<_:k_5> <WROTE> <_:k_121>  .
+<_:k_6> <WROTE> <_:k_121>  .
+<_:k_7> <PRODUCED> <_:k_121>  .
+<_:k_127> <ACTED_IN> <_:k_128> (roles="["Raizo"]") .
+<_:k_129> <ACTED_IN> <_:k_128> (roles="["Mika Coretti"]") .
+<_:k_64> <ACTED_IN> <_:k_128> (roles="["Takeshi"]") .
+<_:k_120> <ACTED_IN> <_:k_128> (roles="["Ryan Maslow"]") .
+<_:k_25> <DIRECTED> <_:k_128>  .
+<_:k_5> <PRODUCED> <_:k_128>  .
+<_:k_6> <PRODUCED> <_:k_128>  .
+<_:k_7> <PRODUCED> <_:k_128>  .
+<_:k_71> <ACTED_IN> <_:k_130> (roles="["Paul Edgecomb"]") .
+<_:k_131> <ACTED_IN> <_:k_130> (roles="["John Coffey"]") .
+<_:k_132> <ACTED_IN> <_:k_130> (roles="["Brutus \"Brutal\" Howell"]") .
+<_:k_42> <ACTED_IN> <_:k_130> (roles="["Jan Edgecomb"]") .
+<_:k_65> <ACTED_IN> <_:k_130> (roles="["Warden Hal Moores"]") .
+<_:k_133> <ACTED_IN> <_:k_130> (roles="["\"Wild Bill\" Wharton"]") .
+<_:k_134> <ACTED_IN> <_:k_130> (roles="["Burt Hammersmith"]") .
+<_:k_135> <ACTED_IN> <_:k_130> (roles="["Melinda Moores"]") .
+<_:k_136> <DIRECTED> <_:k_130>  .
+<_:k_138> <ACTED_IN> <_:k_137> (roles="["Richard Nixon"]") .
+<_:k_139> <ACTED_IN> <_:k_137> (roles="["David Frost"]") .
+<_:k_19> <ACTED_IN> <_:k_137> (roles="["Jack Brennan"]") .
+<_:k_140> <ACTED_IN> <_:k_137> (roles="["Bob Zelnick"]") .
+<_:k_133> <ACTED_IN> <_:k_137> (roles="["James Reston, Jr."]") .
+<_:k_115> <DIRECTED> <_:k_137>  .
+<_:k_17> <ACTED_IN> <_:k_141> (roles="["Hoffa"]") .
+<_:k_142> <ACTED_IN> <_:k_141> (roles="["Robert \"Bobby\" Ciaro"]") .
+<_:k_24> <ACTED_IN> <_:k_141> (roles="["Frank Fitzsimmons"]") .
+<_:k_143> <ACTED_IN> <_:k_141> (roles="["Peter \"Pete\" Connelly"]") .
+<_:k_142> <DIRECTED> <_:k_141>  .
+<_:k_71> <ACTED_IN> <_:k_144> (roles="["Jim Lovell"]") .
+<_:k_19> <ACTED_IN> <_:k_144> (roles="["Jack Swigert"]") .
+<_:k_145> <ACTED_IN> <_:k_144> (roles="["Gene Kranz"]") .
+<_:k_146> <ACTED_IN> <_:k_144> (roles="["Fred Haise"]") .
+<_:k_134> <ACTED_IN> <_:k_144> (roles="["Ken Mattingly"]") .
+<_:k_115> <DIRECTED> <_:k_144>  .
+<_:k_146> <ACTED_IN> <_:k_147> (roles="["Bill Harding"]") .
+<_:k_53> <ACTED_IN> <_:k_147> (roles="["Dr. Jo Harding"]") .
+<_:k_94> <ACTED_IN> <_:k_147> (roles="["Eddie"]") .
+<_:k_148> <ACTED_IN> <_:k_147> (roles="["Dustin \"Dusty\" Davis"]") .
+<_:k_149> <DIRECTED> <_:k_147>  .
+<_:k_71> <ACTED_IN> <_:k_150> (roles="["Chuck Noland"]") .
+<_:k_53> <ACTED_IN> <_:k_150> (roles="["Kelly Frears"]") .
+<_:k_151> <DIRECTED> <_:k_150>  .
+<_:k_17> <ACTED_IN> <_:k_152> (roles="["Randle McMurphy"]") .
+<_:k_142> <ACTED_IN> <_:k_152> (roles="["Martini"]") .
+<_:k_153> <DIRECTED> <_:k_152>  .
+<_:k_17> <ACTED_IN> <_:k_154> (roles="["Harry Sanborn"]") .
+<_:k_155> <ACTED_IN> <_:k_154> (roles="["Erica Barry"]") .
+<_:k_1> <ACTED_IN> <_:k_154> (roles="["Julian Mercer"]") .
+<_:k_156> <DIRECTED> <_:k_154>  .
+<_:k_156> <PRODUCED> <_:k_154>  .
+<_:k_156> <WROTE> <_:k_154>  .
+<_:k_60> <ACTED_IN> <_:k_157> (roles="["Andrew Marin"]") .
+<_:k_140> <ACTED_IN> <_:k_157> (roles="["Rupert Burns"]") .
+<_:k_158> <DIRECTED> <_:k_157>  .
+<_:k_71> <ACTED_IN> <_:k_159> (roles="["Rep. Charlie Wilson"]") .
+<_:k_160> <ACTED_IN> <_:k_159> (roles="["Joanne Herring"]") .
+<_:k_148> <ACTED_IN> <_:k_159> (roles="["Gust Avrakotos"]") .
+<_:k_96> <DIRECTED> <_:k_159>  .
+<_:k_71> <ACTED_IN> <_:k_161> (roles="["Hero Boy","Father","Conductor","Hobo","Scrooge","Santa Claus"]") .
+<_:k_151> <DIRECTED> <_:k_161>  .
+<_:k_71> <ACTED_IN> <_:k_162> (roles="["Jimmy Dugan"]") .
+<_:k_164> <ACTED_IN> <_:k_162> (roles="["Dottie Hinson"]") .
+<_:k_165> <ACTED_IN> <_:k_162> (roles="["Kit Keller"]") .
+<_:k_77> <ACTED_IN> <_:k_162> (roles="["Doris Murphy"]") .
+<_:k_163> <ACTED_IN> <_:k_162> (roles="["\"All the Way\" Mae Mordabito"]") .
+<_:k_146> <ACTED_IN> <_:k_162> (roles="["Bob Hinson"]") .
+<_:k_166> <DIRECTED> <_:k_162>  .
+<_:k_170> <FOLLOWS> <_:k_169>  .
+<_:k_168> <FOLLOWS> <_:k_169>  .
+<_:k_167> <FOLLOWS> <_:k_168>  .
+<_:k_169> <REVIEWED> <_:k_105> (rating="95",summary="An amazing journey") .
+<_:k_169> <REVIEWED> <_:k_87> (rating="65",summary="Silly, but fun") .
+<_:k_170> <REVIEWED> <_:k_87> (rating="100",summary="The coolest football movie ever") .
+<_:k_168> <REVIEWED> <_:k_87> (rating="62",summary="Pretty funny at times") .
+<_:k_169> <REVIEWED> <_:k_97> (rating="85",summary="Dark, but compelling") .
+<_:k_169> <REVIEWED> <_:k_95> (rating="45",summary="Slapstick redeemed only by the Robin Williams and Gene Hackman's stellar performances") .
+<_:k_169> <REVIEWED> <_:k_111> (rating="68",summary="A solid romp") .
+<_:k_170> <REVIEWED> <_:k_111> (rating="65",summary="Fun, but a little far fetched") .
+<_:k_169> <REVIEWED> <_:k_37> (rating="92",summary="You had me at Jerry") .
