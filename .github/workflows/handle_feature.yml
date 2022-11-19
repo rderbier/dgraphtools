@@ -1,20 +1,30 @@
 # Add feature request to the project board
 #
-name: Add Feature Request
+name: project_automation
 on:
   issues:
     types:
       - labeled
-      - opened
+env:
+  gh_project_token: ${{ secrets.PAC_TOKEN }}
+  project_id: 1
+  gh_organization: rderbier
+  status_todo: "ASAP"
 jobs:
-  add-comment:
+  add-to-project:
+    name: add_feature_request
     if: github.event.label.name == 'kind/feature'
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
-      - uses: alex-page/github-project-automation-plus@v0.8.1
+      - name: 'Move issue to ${{ env.status_new }}'
+        uses: leonsteinhaeuser/project-beta-automations@v2.0.1
+        env:
+          DEBUG_LOG: "true"
         with:
-          project: 1
-          column: ASAP
-          repo-token: ${{ secrets.GHPROJECT_TOKEN}}
+          gh_token: ${{ env.gh_project_token }}
+          organization: ${{ env.gh_organization }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          status_value: ${{ env.status_todo }}
