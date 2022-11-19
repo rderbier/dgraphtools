@@ -797,3 +797,216 @@
 <_:k_169> <REVIEWED> <_:k_111> (rating="68",summary="A solid romp") .
 <_:k_170> <REVIEWED> <_:k_111> (rating="65",summary="Fun, but a little far fetched") .
 <_:k_169> <REVIEWED> <_:k_37> (rating="92",summary="You had me at Jerry") .
+
+<_:k_30> <ACTED_IN> <_:k_29> (roles="["Charlie"]") .
+<_:k_31> <ACTED_IN> <_:k_29> (roles="["Iceman"]") .
+<_:k_32> <ACTED_IN> <_:k_29> (roles="["Goose"]") .
+<_:k_33> <ACTED_IN> <_:k_29> (roles="["Viper"]") .
+<_:k_34> <ACTED_IN> <_:k_29> (roles="["Carole"]") .
+<_:k_35> <DIRECTED> <_:k_29>  .
+<_:k_36> <WROTE> <_:k_29>  .
+<_:k_16> <ACTED_IN> <_:k_37> (roles="["Jerry Maguire"]") .
+<_:k_22> <ACTED_IN> <_:k_37> (roles="["Rod Tidwell"]") .
+<_:k_38> <ACTED_IN> <_:k_37> (roles="["Dorothy Boyd"]") .
+<_:k_39> <ACTED_IN> <_:k_37> (roles="["Avery Bishop"]") .
+<_:k_40> <ACTED_IN> <_:k_37> (roles="["Frank Cushman"]") .
+<_:k_41> <ACTED_IN> <_:k_37> (roles="["Bob Sugar"]") .
+<_:k_42> <ACTED_IN> <_:k_37> (roles="["Laurel Boyd"]") .
+<_:k_43> <ACTED_IN> <_:k_37> (roles="["Marcee Tidwell"]") .
+<_:k_44> <ACTED_IN> <_:k_37> (roles="["Ray Boyd"]") .
+<_:k_45> <DIRECTED> <_:k_37>  .
+<_:k_45> <PRODUCED> <_:k_37>  .
+<_:k_45> <WROTE> <_:k_37>  .
+<_:k_49> <ACTED_IN> <_:k_46> (roles="["Gordie Lachance"]") .
+<_:k_47> <ACTED_IN> <_:k_46> (roles="["Chris Chambers"]") .
+<_:k_40> <ACTED_IN> <_:k_46> (roles="["Vern Tessio"]") .
+<_:k_48> <ACTED_IN> <_:k_46> (roles="["Teddy Duchamp"]") .
+<_:k_50> <ACTED_IN> <_:k_46> (roles="["Denny Lachance"]") .
+<_:k_20> <ACTED_IN> <_:k_46> (roles="["Ace Merrill"]") .
+<_:k_51> <ACTED_IN> <_:k_46> (roles="["Mr. Lachance"]") .
+<_:k_27> <DIRECTED> <_:k_46>  .
+<_:k_17> <ACTED_IN> <_:k_52> (roles="["Melvin Udall"]") .
+<_:k_53> <ACTED_IN> <_:k_52> (roles="["Carol Connelly"]") .
+<_:k_54> <ACTED_IN> <_:k_52> (roles="["Simon Bishop"]") .
+<_:k_22> <ACTED_IN> <_:k_52> (roles="["Frank Sachs"]") .
+<_:k_55> <DIRECTED> <_:k_52>  .
+<_:k_60> <ACTED_IN> <_:k_56> (roles="["Chris Nielsen"]") .
+<_:k_22> <ACTED_IN> <_:k_56> (roles="["Albert Lewis"]") .
+<_:k_57> <ACTED_IN> <_:k_56> (roles="["Annie Collins-Nielsen"]") .
+<_:k_58> <ACTED_IN> <_:k_56> (roles="["The Tracker"]") .
+<_:k_59> <ACTED_IN> <_:k_56> (roles="["The Face"]") .
+<_:k_61> <DIRECTED> <_:k_56>  .
+<_:k_63> <ACTED_IN> <_:k_62> (roles="["Ishmael Chambers"]") .
+<_:k_64> <ACTED_IN> <_:k_62> (roles="["Kazuo Miyamoto"]") .
+<_:k_58> <ACTED_IN> <_:k_62> (roles="["Nels Gudmundsson"]") .
+<_:k_65> <ACTED_IN> <_:k_62> (roles="["Judge Fielding"]") .
+<_:k_66> <DIRECTED> <_:k_62>  .
+<_:k_71> <ACTED_IN> <_:k_67> (roles="["Joe Fox"]") .
+<_:k_34> <ACTED_IN> <_:k_67> (roles="["Kathleen Kelly"]") .
+<_:k_54> <ACTED_IN> <_:k_67> (roles="["Frank Navasky"]") .
+<_:k_68> <ACTED_IN> <_:k_67> (roles="["Patricia Eden"]") .
+<_:k_69> <ACTED_IN> <_:k_67> (roles="["Kevin Jackson"]") .
+<_:k_70> <ACTED_IN> <_:k_67> (roles="["George Pappas"]") .
+<_:k_72> <DIRECTED> <_:k_67>  .
+<_:k_71> <ACTED_IN> <_:k_73> (roles="["Sam Baldwin"]") .
+<_:k_34> <ACTED_IN> <_:k_73> (roles="["Annie Reed"]") .
+<_:k_74> <ACTED_IN> <_:k_73> (roles="["Suzy"]") .
+<_:k_75> <ACTED_IN> <_:k_73> (roles="["Walter"]") .
+<_:k_76> <ACTED_IN> <_:k_73> (roles="["Greg"]") .
+<_:k_77> <ACTED_IN> <_:k_73> (roles="["Becky"]") .
+<_:k_72> <DIRECTED> <_:k_73>  .
+<_:k_71> <ACTED_IN> <_:k_78> (roles="["Joe Banks"]") .
+<_:k_34> <ACTED_IN> <_:k_78> (roles="["DeDe","Angelica Graynamore","Patricia Graynamore"]") .
+<_:k_80> <ACTED_IN> <_:k_78> (roles="["Baw"]") .
+<_:k_79> <DIRECTED> <_:k_78>  .
+<_:k_82> <ACTED_IN> <_:k_81> (roles="["Harry Burns"]") .
+<_:k_34> <ACTED_IN> <_:k_81> (roles="["Sally Albright"]") .
+<_:k_83> <ACTED_IN> <_:k_81> (roles="["Marie"]") .
+<_:k_84> <ACTED_IN> <_:k_81> (roles="["Jess"]") .
+<_:k_27> <DIRECTED> <_:k_81>  .
+<_:k_27> <PRODUCED> <_:k_81>  .
+<_:k_72> <PRODUCED> <_:k_81>  .
+<_:k_72> <WROTE> <_:k_81>  .
+<_:k_71> <ACTED_IN> <_:k_85> (roles="["Mr. White"]") .
+<_:k_86> <ACTED_IN> <_:k_85> (roles="["Faye Dolan"]") .
+<_:k_12> <ACTED_IN> <_:k_85> (roles="["Tina"]") .
+<_:k_71> <DIRECTED> <_:k_85>  .
+<_:k_1> <ACTED_IN> <_:k_87> (roles="["Shane Falco"]") .
+<_:k_88> <ACTED_IN> <_:k_87> (roles="["Annabelle Farrell"]") .
+<_:k_89> <ACTED_IN> <_:k_87> (roles="["Jimmy McGinty"]") .
+<_:k_90> <ACTED_IN> <_:k_87> (roles="["Clifford Franklin"]") .
+<_:k_91> <DIRECTED> <_:k_87>  .
+<_:k_51> <ACTED_IN> <_:k_92> (roles="["Admiral"]") .
+<_:k_93> <ACTED_IN> <_:k_92> (roles="["Dieter Dengler"]") .
+<_:k_94> <ACTED_IN> <_:k_92> (roles="["Squad Leader"]") .
+<_:k_70> <ACTED_IN> <_:k_92> (roles="["Duane"]") .
+<_:k_59> <DIRECTED> <_:k_92>  .
+<_:k_60> <ACTED_IN> <_:k_95> (roles="["Armand Goldman"]") .
+<_:k_80> <ACTED_IN> <_:k_95> (roles="["Albert Goldman"]") .
+<_:k_89> <ACTED_IN> <_:k_95> (roles="["Sen. Kevin Keeley"]") .
+<_:k_96> <DIRECTED> <_:k_95>  .
+<_:k_98> <ACTED_IN> <_:k_97> (roles="["English Bob"]") .
+<_:k_99> <ACTED_IN> <_:k_97> (roles="["Bill Munny"]") .
+<_:k_89> <ACTED_IN> <_:k_97> (roles="["Little Bill Daggett"]") .
+<_:k_99> <DIRECTED> <_:k_97>  .
+<_:k_1> <ACTED_IN> <_:k_100> (roles="["Johnny Mnemonic"]") .
+<_:k_101> <ACTED_IN> <_:k_100> (roles="["Takahashi"]") .
+<_:k_102> <ACTED_IN> <_:k_100> (roles="["Jane"]") .
+<_:k_103> <ACTED_IN> <_:k_100> (roles="["J-Bone"]") .
+<_:k_104> <DIRECTED> <_:k_100>  .
+<_:k_71> <ACTED_IN> <_:k_105> (roles="["Zachry","Dr. Henry Goose","Isaac Sachs","Dermot Hoggins"]") .
+<_:k_4> <ACTED_IN> <_:k_105> (roles="["Bill Smoke","Haskell Moore","Tadeusz Kesselring","Nurse Noakes","Boardman Mephi","Old Georgie"]") .
+<_:k_106> <ACTED_IN> <_:k_105> (roles="["Luisa Rey","Jocasta Ayrs","Ovid","Meronym"]") .
+<_:k_107> <ACTED_IN> <_:k_105> (roles="["Vyvyan Ayrs","Captain Molyneux","Timothy Cavendish"]") .
+<_:k_108> <DIRECTED> <_:k_105>  .
+<_:k_5> <DIRECTED> <_:k_105>  .
+<_:k_6> <DIRECTED> <_:k_105>  .
+<_:k_109> <WROTE> <_:k_105>  .
+<_:k_110> <PRODUCED> <_:k_105>  .
+<_:k_71> <ACTED_IN> <_:k_111> (roles="["Dr. Robert Langdon"]") .
+<_:k_112> <ACTED_IN> <_:k_111> (roles="["Sir Leight Teabing"]") .
+<_:k_113> <ACTED_IN> <_:k_111> (roles="["Sophie Neveu"]") .
+<_:k_114> <ACTED_IN> <_:k_111> (roles="["Silas"]") .
+<_:k_115> <DIRECTED> <_:k_111>  .
+<_:k_4> <ACTED_IN> <_:k_116> (roles="["V"]") .
+<_:k_117> <ACTED_IN> <_:k_116> (roles="["Evey Hammond"]") .
+<_:k_118> <ACTED_IN> <_:k_116> (roles="["Eric Finch"]") .
+<_:k_119> <ACTED_IN> <_:k_116> (roles="["High Chancellor Adam Sutler"]") .
+<_:k_120> <ACTED_IN> <_:k_116> (roles="["Dascomb"]") .
+<_:k_25> <DIRECTED> <_:k_116>  .
+<_:k_5> <PRODUCED> <_:k_116>  .
+<_:k_6> <PRODUCED> <_:k_116>  .
+<_:k_7> <PRODUCED> <_:k_116>  .
+<_:k_5> <WROTE> <_:k_116>  .
+<_:k_6> <WROTE> <_:k_116>  .
+<_:k_122> <ACTED_IN> <_:k_121> (roles="["Speed Racer"]") .
+<_:k_123> <ACTED_IN> <_:k_121> (roles="["Pops"]") .
+<_:k_124> <ACTED_IN> <_:k_121> (roles="["Mom"]") .
+<_:k_125> <ACTED_IN> <_:k_121> (roles="["Racer X"]") .
+<_:k_126> <ACTED_IN> <_:k_121> (roles="["Trixie"]") .
+<_:k_127> <ACTED_IN> <_:k_121> (roles="["Taejo Togokahn"]") .
+<_:k_120> <ACTED_IN> <_:k_121> (roles="["Cass Jones"]") .
+<_:k_5> <DIRECTED> <_:k_121>  .
+<_:k_6> <DIRECTED> <_:k_121>  .
+<_:k_5> <WROTE> <_:k_121>  .
+<_:k_6> <WROTE> <_:k_121>  .
+<_:k_7> <PRODUCED> <_:k_121>  .
+<_:k_127> <ACTED_IN> <_:k_128> (roles="["Raizo"]") .
+<_:k_129> <ACTED_IN> <_:k_128> (roles="["Mika Coretti"]") .
+<_:k_64> <ACTED_IN> <_:k_128> (roles="["Takeshi"]") .
+<_:k_120> <ACTED_IN> <_:k_128> (roles="["Ryan Maslow"]") .
+<_:k_25> <DIRECTED> <_:k_128>  .
+<_:k_5> <PRODUCED> <_:k_128>  .
+<_:k_6> <PRODUCED> <_:k_128>  .
+<_:k_7> <PRODUCED> <_:k_128>  .
+<_:k_71> <ACTED_IN> <_:k_130> (roles="["Paul Edgecomb"]") .
+<_:k_131> <ACTED_IN> <_:k_130> (roles="["John Coffey"]") .
+<_:k_132> <ACTED_IN> <_:k_130> (roles="["Brutus \"Brutal\" Howell"]") .
+<_:k_42> <ACTED_IN> <_:k_130> (roles="["Jan Edgecomb"]") .
+<_:k_65> <ACTED_IN> <_:k_130> (roles="["Warden Hal Moores"]") .
+<_:k_133> <ACTED_IN> <_:k_130> (roles="["\"Wild Bill\" Wharton"]") .
+<_:k_134> <ACTED_IN> <_:k_130> (roles="["Burt Hammersmith"]") .
+<_:k_135> <ACTED_IN> <_:k_130> (roles="["Melinda Moores"]") .
+<_:k_136> <DIRECTED> <_:k_130>  .
+<_:k_138> <ACTED_IN> <_:k_137> (roles="["Richard Nixon"]") .
+<_:k_139> <ACTED_IN> <_:k_137> (roles="["David Frost"]") .
+<_:k_19> <ACTED_IN> <_:k_137> (roles="["Jack Brennan"]") .
+<_:k_140> <ACTED_IN> <_:k_137> (roles="["Bob Zelnick"]") .
+<_:k_133> <ACTED_IN> <_:k_137> (roles="["James Reston, Jr."]") .
+<_:k_115> <DIRECTED> <_:k_137>  .
+<_:k_17> <ACTED_IN> <_:k_141> (roles="["Hoffa"]") .
+<_:k_142> <ACTED_IN> <_:k_141> (roles="["Robert \"Bobby\" Ciaro"]") .
+<_:k_24> <ACTED_IN> <_:k_141> (roles="["Frank Fitzsimmons"]") .
+<_:k_143> <ACTED_IN> <_:k_141> (roles="["Peter \"Pete\" Connelly"]") .
+<_:k_142> <DIRECTED> <_:k_141>  .
+<_:k_71> <ACTED_IN> <_:k_144> (roles="["Jim Lovell"]") .
+<_:k_19> <ACTED_IN> <_:k_144> (roles="["Jack Swigert"]") .
+<_:k_145> <ACTED_IN> <_:k_144> (roles="["Gene Kranz"]") .
+<_:k_146> <ACTED_IN> <_:k_144> (roles="["Fred Haise"]") .
+<_:k_134> <ACTED_IN> <_:k_144> (roles="["Ken Mattingly"]") .
+<_:k_115> <DIRECTED> <_:k_144>  .
+<_:k_146> <ACTED_IN> <_:k_147> (roles="["Bill Harding"]") .
+<_:k_53> <ACTED_IN> <_:k_147> (roles="["Dr. Jo Harding"]") .
+<_:k_94> <ACTED_IN> <_:k_147> (roles="["Eddie"]") .
+<_:k_148> <ACTED_IN> <_:k_147> (roles="["Dustin \"Dusty\" Davis"]") .
+<_:k_149> <DIRECTED> <_:k_147>  .
+<_:k_71> <ACTED_IN> <_:k_150> (roles="["Chuck Noland"]") .
+<_:k_53> <ACTED_IN> <_:k_150> (roles="["Kelly Frears"]") .
+<_:k_151> <DIRECTED> <_:k_150>  .
+<_:k_17> <ACTED_IN> <_:k_152> (roles="["Randle McMurphy"]") .
+<_:k_142> <ACTED_IN> <_:k_152> (roles="["Martini"]") .
+<_:k_153> <DIRECTED> <_:k_152>  .
+<_:k_17> <ACTED_IN> <_:k_154> (roles="["Harry Sanborn"]") .
+<_:k_155> <ACTED_IN> <_:k_154> (roles="["Erica Barry"]") .
+<_:k_1> <ACTED_IN> <_:k_154> (roles="["Julian Mercer"]") .
+<_:k_156> <DIRECTED> <_:k_154>  .
+<_:k_156> <PRODUCED> <_:k_154>  .
+<_:k_156> <WROTE> <_:k_154>  .
+<_:k_60> <ACTED_IN> <_:k_157> (roles="["Andrew Marin"]") .
+<_:k_140> <ACTED_IN> <_:k_157> (roles="["Rupert Burns"]") .
+<_:k_158> <DIRECTED> <_:k_157>  .
+<_:k_71> <ACTED_IN> <_:k_159> (roles="["Rep. Charlie Wilson"]") .
+<_:k_160> <ACTED_IN> <_:k_159> (roles="["Joanne Herring"]") .
+<_:k_148> <ACTED_IN> <_:k_159> (roles="["Gust Avrakotos"]") .
+<_:k_96> <DIRECTED> <_:k_159>  .
+<_:k_71> <ACTED_IN> <_:k_161> (roles="["Hero Boy","Father","Conductor","Hobo","Scrooge","Santa Claus"]") .
+<_:k_151> <DIRECTED> <_:k_161>  .
+<_:k_71> <ACTED_IN> <_:k_162> (roles="["Jimmy Dugan"]") .
+<_:k_164> <ACTED_IN> <_:k_162> (roles="["Dottie Hinson"]") .
+<_:k_165> <ACTED_IN> <_:k_162> (roles="["Kit Keller"]") .
+<_:k_77> <ACTED_IN> <_:k_162> (roles="["Doris Murphy"]") .
+<_:k_163> <ACTED_IN> <_:k_162> (roles="["\"All the Way\" Mae Mordabito"]") .
+<_:k_146> <ACTED_IN> <_:k_162> (roles="["Bob Hinson"]") .
+<_:k_166> <DIRECTED> <_:k_162>  .
+<_:k_170> <FOLLOWS> <_:k_169>  .
+<_:k_168> <FOLLOWS> <_:k_169>  .
+<_:k_167> <FOLLOWS> <_:k_168>  .
+<_:k_169> <REVIEWED> <_:k_105> (rating="95",summary="An amazing journey") .
+<_:k_169> <REVIEWED> <_:k_87> (rating="65",summary="Silly, but fun") .
+<_:k_170> <REVIEWED> <_:k_87> (rating="100",summary="The coolest football movie ever") .
+<_:k_168> <REVIEWED> <_:k_87> (rating="62",summary="Pretty funny at times") .
+<_:k_169> <REVIEWED> <_:k_97> (rating="85",summary="Dark, but compelling") .
+<_:k_169> <REVIEWED> <_:k_95> (rating="45",summary="Slapstick redeemed only by the Robin Williams and Gene Hackman's stellar performances") .
+<_:k_169> <REVIEWED> <_:k_111> (rating="68",summary="A solid romp") .
+<_:k_170> <REVIEWED> <_:k_111> (rating="65",summary="Fun, but a little far fetched") .
+<_:k_169> <REVIEWED> <_:k_37> (rating="92",summary="You had me at Jerry") .

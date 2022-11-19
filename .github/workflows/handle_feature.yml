@@ -1,0 +1,19 @@
+# Add feature request to the project board
+#
+name: Add Feature Request
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  add-comment:
+    if: github.event.label.name == 'kind/feature'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Test Project
+          column: ASAP
+          repo-token: ${{ secrets.GHPROJECT_TOKEN}}

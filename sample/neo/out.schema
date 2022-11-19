@@ -1,0 +1,23 @@
+released: default .
+tagline: default .
+born: default .
+name: default .
+PRODUCED: uid .
+WROTE: uid .
+FOLLOWS: uid .
+REVIEWED: uid .
+ACTED_IN: uid .
+DIRECTED: uid .
+type Movie {
+ released
+ tagline
+ title
+}
+type Person {
+ name
+ born
+}
+type Start {
+ born
+ name
+}
