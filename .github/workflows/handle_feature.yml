@@ -6,9 +6,9 @@ on:
     types:
       - labeled
 env:
-  gh_project_token: ${{ secrets.PAC_TOKEN }}
+  gh_project_token: ${{ secrets.GHPROJECT_TOKEN }}
   project_id: 1
-  gh_organization: rderbier
+  gh_organization: "rderbier"
   status_todo: "ASAP"
 jobs:
   add-to-project:
