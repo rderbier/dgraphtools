@@ -8,7 +8,7 @@ on:
 env:
   gh_project_token: ${{ secrets.GHPROJECT_TOKEN }}
   project_id: 1
-  gh_organization: "rderbier"
+  gh_user: "rderbier"
   status_todo: "ASAP"
 jobs:
   add-to-project:
@@ -24,7 +24,7 @@ jobs:
           DEBUG_LOG: "true"
         with:
           gh_token: ${{ env.gh_project_token }}
-          organization: ${{ env.gh_organization }}
+          user: ${{ env.gh_user }}
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
           status_value: ${{ env.status_todo }}
