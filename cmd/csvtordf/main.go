@@ -259,8 +259,8 @@ func substituteColumnValues(line []string, tripleTemplate string, hmap map[strin
 			return "", err
 		}
 		val := line[col]
-		if val == "" {
-			fmt.Printf("RDF %s ignored because of empty value for column %s\n", tripleTemplate, column)
+		if val == "" || val == "NULL" {
+			fmt.Printf("RDF %s ignored because of empty or NULL value for column %s\n", tripleTemplate, column)
 			tripleTemplate = ""
 			break
 		}
@@ -292,18 +292,22 @@ func cvslineToTriples(index int, line []string, templates []string, hmap map[str
 	var err error
 	for _, triple := range templates {
 		// replace all [] blocks one by one, loop until none found.
-		triple, err = substituteColumnValues(line, triple, hmap)
-		// end loop until none function found
-		if err != nil {
-			return nil, err
-		}
-		triple, err = substituteFunction(triple)
-		if err == nil {
-			if triple != "" {
-				output = append(output, triple)
+		triple = strings.Trim(triple, " ")
+		// ignore empty lines and commented lines
+		if triple != "" && !strings.HasPrefix(triple, "#") {
+			triple, err = substituteColumnValues(line, triple, hmap)
+			// end loop until none function found
+			if err != nil {
+				return nil, err
 			}
-		} else {
-			return nil, err
+			triple, err = substituteFunction(triple)
+			if err == nil {
+				if triple != "" {
+					output = append(output, triple)
+				}
+			} else {
+				return nil, err
+			}
 		}
 	}
 	return output, nil
@@ -356,9 +360,7 @@ func rdfToMapAndPredicates(rdfs []string, p *PredSchema) (*map[string]string, er
 			}
 
 		} else {
-			if !strings.HasPrefix(s, "#") {
-				log.Println("Invalid RDF generated " + s)
-			}
+			log.Println("Invalid RDF generated " + s)
 		}
 
 	}

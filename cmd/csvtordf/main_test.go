@@ -26,7 +26,7 @@ func TestCvslineToTriples(t *testing.T) {
 		"COL2":  1,
 		"COL.3": 2,
 	}
-	templates := []string{"<_:test> <is> \"text with [COL1] and [COL2]\" ."}
+	templates := []string{"<_:test> <is> \"text with [COL1] and [COL2]\" .", "<_:test-a> <link> <_:test/b>"}
 
 	triple, _ := cvslineToTriples(0, line, templates, cols)
 	assert.Equal(triple[0], "<_:test> <is> \"text with Value one and Value two\" .")
