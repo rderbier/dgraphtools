@@ -1,11 +1,11 @@
 # template file
 <_:School_[School.ID]> <dgraph.type> "School" .
-<_:School_[School.ID]> <name> "[School.Name]" .
-<_:School_[School.ID]> <schooltype> "[School.Metro.Type]" .
+<_:School_[School.ID]> <School.name> "[School.Name]" .
+<_:School_[School.ID]> <School.schooltype> "[School.Metro.Type]" .
 <_:School_[School.ID]> <geoloc> =geoloc([LNG],[LAT]) .
 <_:City_[School.City,nospace]> <dgraph.type> "City" .
-<_:City_[School.City,nospace]> <name> "[School.City]" .
-<_:School_[School.ID]> <is_in> <_:City_[School.City,nospace]> .
+<_:City_[School.City,nospace]> <City.name> "[School.City]" .
+<_:School_[School.ID]> <School.city> <_:City_[School.City,nospace]> .
 <_:State_[School.State,nospace]> <dgraph.type> "State" .
-<_:State_[School.State,nospace]> <name> "[School.State]" .
-<_:City_[School.City,nospace]> <is_in> <_:State_[School.State,nospace]> .
+<_:State_[School.State,nospace]> <State.name> "[School.State]" .
+<_:City_[School.City,nospace]> <School.state> <_:State_[School.State,nospace]> .

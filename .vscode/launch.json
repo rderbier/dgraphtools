@@ -13,6 +13,18 @@
             "args": ["-f=/Users/raph/Rwork/Projects-1.csv","-o=/Users/raph/Rwork/Projects-1-clean.csv"]
         },  
         {
+            "name": "FAcode",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/csvtordf",
+            "args": ["-f=/Users/raph/work-customers/FAcode/dataforbubble.csv",
+            "-t=/Users/raph/work-customers/FAcode/template.txt", 
+            "-s=/Users/raph/work-customers/FAcode/schema.txt",
+            "-o=/Users/raph/work-customers/FAcode/data.rdf"
+            ]
+        }, 
+        {
             "name": "donors",
             "type": "go",
             "request": "launch",
@@ -54,6 +66,7 @@
             "-o=/Users/raph/tmp/donors.rdf",
             "-s=/Users/raph/tmp/donors.schema"]
         }, 
+       
         {
         "name": "schools",
         "type": "go",
@@ -65,6 +78,48 @@
         "-o=/Users/raph/tmp/donors.rdf",
         "-s=/Users/raph/tmp/donors.schema"]
         },
+        {
+            "name": "schoolsCA",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/csvtordf",
+            "args": ["-f=/Users/raph/Rwork/Schools-CA.csv", 
+            "-t=../../sample/donors/templates/SchoolTemplate.txt",
+            "-o=/Users/raph/tmp/donors-CA.rdf",
+            "-s=/Users/raph/tmp/donors.schema"]
+        },
+        {
+            "name": "projectsCA",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/csvtordf",
+            "args": ["-f=/Users/raph/Rwork/Projects-CA.csv",
+            "-t=../../sample/donors/templates/ProjectTemplate.txt", 
+            "-o=/Users/raph/tmp/donors-CA.rdf",
+            "-s=/Users/raph/tmp/donors.schema"]
+        }, 
+        {
+            "name": "donorsCA",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/csvtordf",
+            "args": ["-f=/Users/raph/Rwork/Donors-CA.csv","-t=../../sample/donors/templates/DonorTemplate.txt", 
+             "-o=/Users/raph/tmp/donors-CA.rdf",
+             "-s=/Users/raph/tmp/donors.schema"]
+        },
+        {
+            "name": "donationsCA",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "cmd/csvtordf",
+            "args": ["-f=/Users/raph/Rwork/Donations-CA.csv","-t=../../sample/donors/templates/DonationTemplate.txt", 
+            "-o=/Users/raph/tmp/donors-CA.rdf",
+            "-s=/Users/raph/tmp/donors.schema"]
+        },  
         {
             "name": "schools-large",
             "type": "go",
@@ -98,7 +153,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/neocsvtordf",
-            "args": ["-f=../../sample/neo/neomovies.csv","-c=../../sample/neo/config.json","-o=../../sample/neo/out.rdf"]
+            "args": ["-f=../../sample/neo/neomovies.csv","-c=../../sample/neo/config.json","-o=../../sample/neo/out.rdf","-s=../../sample/neo/out.schema"]
         }
     ]
 }

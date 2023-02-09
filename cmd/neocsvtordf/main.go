@@ -119,54 +119,57 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		defer outschema.Close()
 	}
 
 	// read csv values using csv.Reader
 	processCsv(f, outfile, p)
+	dumpSchema(outschema, p)
 
 }
 
 func dumpSchema(schemafile *os.File, p *PredSchema) {
-	if schemafile == nil {
-		schemafile = os.Stdout
-	} else {
-		fmt.Printf("schema exported to %s", schemafile.Name())
-	}
+	if schemafile != nil {
 
-	for key, value := range p.predicatesMap {
-		line := fmt.Sprintf("%s: %s .\n", key, value)
-		schemafile.WriteString(line)
-	}
-	for dqltype, predmap := range p.types {
-		line := fmt.Sprintf("type %s {\n", dqltype)
-		schemafile.WriteString(line)
-		for pred, _ := range predmap {
-			schemafile.WriteString(fmt.Sprintf(" %s\n", pred))
+		fmt.Printf("schema exported to %s", schemafile.Name())
+
+		for key, value := range p.predicatesMap {
+			line := fmt.Sprintf("%s: %s .\n", key, value)
+			schemafile.WriteString(line)
 		}
-		schemafile.WriteString("}\n")
+		for dqltype, predmap := range p.types {
+			line := fmt.Sprintf("type %s {\n", dqltype)
+			schemafile.WriteString(line)
+			for pred, _ := range predmap {
+				schemafile.WriteString(fmt.Sprintf(" %s\n", pred))
+			}
+			schemafile.WriteString("}\n")
+		}
 	}
 }
 func generateTriples(id string, predicate string, val string, config *Config) []string {
 	var output []string
-	if _, ok := (*config).Predicates[predicate]; ok {
-		predicateType := (*config).Predicates[predicate].Type
-		switch {
-		case predicateType == "datetime":
-			for _, f := range (*config).Predicates[predicate].Format {
-				t, err := time.Parse(f, val)
-				if err == nil {
-					val = t.Format("2006-01-02T15:04:05Z")
-					break
+	if val != "" {
+		if _, ok := (*config).Predicates[predicate]; ok {
+			predicateType := (*config).Predicates[predicate].Type
+			switch {
+			case predicateType == "datetime":
+				for _, f := range (*config).Predicates[predicate].Format {
+					t, err := time.Parse(f, val)
+					if err == nil {
+						val = t.Format("2006-01-02T15:04:05Z")
+						break
+					}
+
 				}
+				break
 
 			}
-			break
-
 		}
-	}
 
-	output = append(output, fmt.Sprintf(`<_:k_%s> <%s> "%s" .`, id, predicate, val))
+		output = append(output, fmt.Sprintf(`<_:k_%s> <%s> "%s" .`, id, predicate, val))
+	}
 	return output
 }
 func cvslineToTriples(line []string, headers []string, indexOfStart int, config *Config, p *PredSchema) ([]string, error) {
@@ -181,17 +184,24 @@ func cvslineToTriples(line []string, headers []string, indexOfStart int, config 
 	if isNode {
 		// create RDFs for dgraph.typ and each off the nom empty attributes
 		labels := strings.Split(line[1], ":")
-		for _, l := range labels[1:] {
-			if l != "" {
-				out = fmt.Sprintf(`<_:k_%s> <dgraph.type> "%s" .`, id, l)
+		for _, entityType := range labels[1:] {
+			if entityType != "" {
+				out = fmt.Sprintf(`<_:k_%s> <dgraph.type> "%s" .`, id, entityType)
 				output = append(output, out)
+			}
+			if _, istype := p.types[entityType]; !istype {
+				p.types[entityType] = make(map[string]bool)
 			}
 		}
 		for i := 2; i <= indexOfStart-1; i++ {
 			predicate := headers[i]
-			if line[i] != "" {
+			if predicate != "" && line[i] != "" {
+
 				if strings.HasPrefix(line[i], "[") {
 					// we have an array
+					if !strings.HasPrefix(p.predicatesMap[predicate], "[") {
+						p.predicatesMap[predicate] = "[" + p.predicatesMap[predicate] + "]"
+					}
 					list := strings.Split(line[i][1:len(line[i])-1], "\"")
 					for _, v := range list {
 						if v != "" && v != "," {
@@ -203,11 +213,18 @@ func cvslineToTriples(line []string, headers []string, indexOfStart int, config 
 					output = append(output, generateTriples(id, predicate, line[i], config)...)
 
 				}
+				// add the predicate to each type
+				for _, entityType := range labels[1:] {
+					if entityType != "" {
+						p.types[entityType][predicate] = true
+					}
+				}
 			}
 		}
 	} else if len(line) > indexOfStart {
 		facets := ""
 		predicate := line[indexOfType]
+		p.predicatesMap[predicate] = "uid"
 
 		if _, ok := config.EdgeNodes[predicate]; ok {
 			//this edge is converted to an entity
@@ -248,6 +265,15 @@ func headersToMaps(headers []string) map[string]int {
 	}
 	return hmap
 }
+func initPredicatesMap(headers []string, p *PredSchema) int {
+	hmap := headersToMaps(headers)
+	indexOfStart := hmap["_start"]
+	// save all predicates
+	for _, attr := range headers[2 : indexOfStart-1] {
+		p.predicatesMap[attr] = "default"
+	}
+	return indexOfStart
+}
 func processCsv(f *os.File, o *os.File, p *PredSchema) {
 	csvReader := csv.NewReader(f)
 	headers, err := csvReader.Read()
@@ -256,12 +282,9 @@ func processCsv(f *os.File, o *os.File, p *PredSchema) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	hmap := headersToMaps(headers)
-	indexOfStart := hmap["_start"]
-	// save all predicates
-	for _, attr := range headers[2 : indexOfStart-1] {
-		p.predicatesMap[attr] = "default"
-	}
+
+	indexOfStart := initPredicatesMap(headers, p)
+
 	i := 0
 	for {
 		rec, err := csvReader.Read()
