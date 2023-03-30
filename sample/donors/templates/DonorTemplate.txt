@@ -1,4 +1,6 @@
 <_:Donor[Donor.ID]> <dgraph.type> "Donor" .
+<_:Donor[Donor.ID]> <typedonor> "true" .
 <_:State_[Donor.State,nospace]> <dgraph.type> "State" .
-<_:State_[Donor.State,nospace]> <name> "[Donor.State]" .
-<_:Donor[Donor.ID]> <is_in> <_:State_[Donor.State,nospace]> .
+<_:State_[Donor.State,nospace]> <State.name> "[Donor.State]" .
+<_:Donor[Donor.ID]> <Donor.geostate> <_:State_[Donor.State,nospace]> .
+<_:Donor[Donor.ID]> <Donor.name> "[firstname] [lastname]" .

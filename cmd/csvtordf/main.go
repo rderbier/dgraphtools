@@ -339,6 +339,7 @@ func rdfToMapAndPredicates(rdfs []string, p *PredSchema) (*map[string]string, er
 				rdfMap[subj+" "+elt[2]] = obj
 			}
 			if !strings.HasPrefix(pred, "dgraph") {
+				//fmt.Println(`${subj ${pred} ${obj}`)
 				if current, exist := p.predicatesMap[pred]; exist {
 					if (current == "uid" || current == "[uid]") && !strings.HasPrefix(current, predtype) {
 						return nil, errors.New(fmt.Sprintf("type mismatch on predicate %s : found %s and %s", pred, current, predtype))
