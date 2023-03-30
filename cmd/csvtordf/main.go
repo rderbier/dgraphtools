@@ -114,7 +114,7 @@ func parseSchema(lines []string) *PredSchema {
 			if i > -1 {
 				pred := line[0:i]
 
-				p.predicatesMap[pred] = strings.Trim(strings.Trim(line[i+1:], "."), " ")
+				p.predicatesMap[pred] = strings.TrimSpace(strings.Trim(line[i+1:], "."))
 			} else {
 				if strings.HasPrefix(line, "type ") {
 					typename = strings.Split(line, " ")[1]
@@ -123,7 +123,7 @@ func parseSchema(lines []string) *PredSchema {
 					typename = ""
 				} else {
 					if typename != "" {
-						p.types[typename][line] = true
+						p.types[typename][strings.TrimSpace(line)] = true
 					}
 				}
 
