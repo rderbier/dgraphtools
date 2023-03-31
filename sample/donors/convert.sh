@@ -5,7 +5,8 @@ rm donors.rdf
 rm donors.schema
 cp schemas/donors.schema .
 # convert all csv in same rdf file
-../../bin/csvtordf -f=./csv/10schools/Schools-CA10.csv -t=./templates/SchoolTemplate.txt -o=donors.rdf -s=donors.schema
-../../bin/csvtordf -f=./csv/10schools/Projects-CA10.csv -t=./templates/ProjectTemplate.txt -o=donors.rdf -s=donors.schema
-../../bin/csvtordf -f=./csv/10schools/Donors-CA10.csv -t=./templates/DonorTemplate.txt -o=donors.rdf -s=donors.schema
-../../bin/csvtordf -f=./csv/10schools/Donations-CA10.csv -t=./templates/DonationTemplate.txt -o=donors.rdf -s=donors.schema
+CSV_PATH="./csv/10schools"
+../../bin/csvtordf -f=${CSV_PATH}/Schools.csv -t=./templates/SchoolTemplate.txt -o=donors.rdf -s=donors.schema
+../../bin/csvtordf -f=${CSV_PATH}/Projects.csv -t=./templates/ProjectTemplate.txt -o=donors.rdf -s=donors.schema
+../../bin/csvtordf -f=${CSV_PATH}/Donors.csv -t=./templates/DonorTemplate.txt -o=donors.rdf -s=donors.schema
+../../bin/csvtordf -f=${CSV_PATH}/Donations.csv -t=./templates/DonationTemplate.txt -o=donors.rdf -s=donors.schema
