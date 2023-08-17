@@ -9,6 +9,10 @@ jobs:
     steps:
     - name: Create Doc in Cycle
       run: |
-        response=$(curl https://api.product.cycle.app/graphql -s -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"raphael@dgraph.io\", password: \"cycle4R@pH\" ) { token } }"}' | jq -r '.data.login.token')
-        echo "Response: $response"
+        token=$(curl https://api.product.cycle.app/graphql -s -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"raphael@dgraph.io\", password: \"cycle4R@pH\" ) { token } }"}' | jq -r '.data.login.token')
+        echo "Response: $token"
+        feedback=$(curl https://api.product.cycle.app/graphql -s -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" --data '{"query" : "mutation { addNewDoc( title: \"from github\" doctypeId: \"RG9jdHlwZV82ZTI4YzVkYi0wMDM0LTRhNmYtODNkZi1hNTM5NThjZmFhN2I=\" productId: \"UHJvZHVjdF80NGQ0MDg0Yi1mYzYwLTQwY2UtOTk4Yi1kZjc0M2M4NTg5NWI=\") {id}"}' | jq -r '.data.addNewDoc.id')
+        echo "feedback: $feedback"
+        
+}
        
