@@ -9,9 +9,8 @@ jobs:
     steps:
     - name: Create Doc in Cycle
       run: |
-        response = $( curl https://api.product.cycle.app/graphql -X POST -H "Content-Type: application/json" \
+        curl https://api.product.cycle.app/graphql -X POST -H "Content-Type: application/json" \
   --data '{
      "query" : "mutation { login(email: , password: ) { token } }"
      }' )
-        echo "response from curl= $response"
        
