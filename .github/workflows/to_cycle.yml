@@ -9,6 +9,6 @@ jobs:
     steps:
     - name: Create Doc in Cycle
       run: |
-        response = $(curl https://api.product.cycle.app/graphql -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"raphael@dgraph.io\", password: \"cycle4R@pH\" ) { token } }"}' | | jq -r '.data.login.token')
+        response = $(curl https://api.product.cycle.app/graphql -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"raphael@dgraph.io\", password: \"cycle4R@pH\" ) { token } }"}' | jq -r '.data.login.token')
         echo "$response"
        
