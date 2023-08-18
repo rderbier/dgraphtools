@@ -2,14 +2,16 @@ on:
   issues:
     types:
       - opened
-       
+env:
+  PRODUCT_ID: "UHJvZHVjdF80NGQ0MDg0Yi1mYzYwLTQwY2UtOTk4Yi1kZjc0M2M4NTg5NWI="
+  FEATURE_TYPE_ID: "RG9jdHlwZV82ZTI4YzVkYi0wMDM0LTRhNmYtODNkZi1hNTM5NThjZmFhN2I="
 jobs:
   run-updater:
     runs-on: ubuntu-latest
     steps:
     - name: Create Doc in Cycle
       run: |
-        TOKEN=$(curl https://api.product.cycle.app/graphql -s -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"raphael@dgraph.io\", password: \"cycle4R@pH\" ) { token } }"}' | jq -r '.data.login.token')
+        TOKEN=$(curl https://api.product.cycle.app/graphql -s -X POST -H "Content-Type: application/json" --data '{"query" : "mutation { login(email: \"${{ secrets.CYCLE_USER }}\", password: \"${{ secrets.CYCLE_PASSW }}\" ) { token } }"}' | jq -r '.data.login.token')
         echo "Token: $TOKEN"
         MUTATION="mutation { addNewDoc( title: \"${{ github.event.issue.title }}\" ,doctypeId: \"RG9jdHlwZV82ZTI4YzVkYi0wMDM0LTRhNmYtODNkZi1hNTM5NThjZmFhN2I=\", productId: \"UHJvZHVjdF80NGQ0MDg0Yi1mYzYwLTQwY2UtOTk4Yi1kZjc0M2M4NTg5NWI=\") {id}}"
         echo "mutation : $MUTATION"
