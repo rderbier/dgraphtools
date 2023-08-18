@@ -13,6 +13,6 @@ jobs:
         echo "Token: $TOKEN"
         MUTATION="mutation { addNewDoc( title: \"${{ github.event.issue.title }}\" ,doctypeId: \"RG9jdHlwZV82ZTI4YzVkYi0wMDM0LTRhNmYtODNkZi1hNTM5NThjZmFhN2I=\", productId: \"UHJvZHVjdF80NGQ0MDg0Yi1mYzYwLTQwY2UtOTk4Yi1kZjc0M2M4NTg5NWI=\") {id}"
         echo "mutation : $MUTATION"
-        feedback=$(curl https://api.product.cycle.app/graphql  -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" --data "{\"query\" : \"$MUTATION\"}")
+        feedback=$(curl https://api.product.cycle.app/graphql  -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" --data '{"query" : "${{ MUTATION }}"}')
         echo "feedback: $feedback"
        
